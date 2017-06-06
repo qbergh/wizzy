@@ -1,0 +1,191 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto"></div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header class="serieHeader">
+                <ul class="normalBar">
+                    <li><a href="home.html"><i class="fa fa-arrow-left"></i></a></li>
+                    <li class="serieNaam">Serienaam</li>
+                    <li><i class="fa fa-trash"></i></li>
+                    <li class="fav"><i class="fa fa-star-o"></i></li>
+                </ul>
+            </header>
+           <section class="serie">
+                <div class="afleveringen 3_grid">
+                    <h2><a href="#" data-page="aflList">Afleveringen</a></h2>
+                    <h2 class="hidden"><a href="#" data-page="serieInfo">Informatie</a></h2>
+                    <div class="aflList">
+                        <div>
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div class="seen">
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div class="seen">
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div class="seen">
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div class="seen">
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                        <div class="seen">
+                            <p>
+                            <i class="fa fa-play-circle"></i>
+                            1 MEI
+                            <i class="fa fa-info"></i>
+                            </p>
+                        </div>
+                       
+                    </div>
+               </div>
+               <div class="serieInfo">
+                   <h2>Synopsis</h2>
+                   <p class="serieSynopsis">In Gert Late Night brengen drie bekende mensen vier dagen door op de boot van Gert Verhulst. Ze leven er, slapen er en elke avond maken ze er een tv-programma. Een programma over de actualiteit van de dag met extra gasten, gebeurtenissen rond de boot, persoonlijke onthullingen, James Cooke, een kokkin, een zetel, een jacuzzi, een bar, ernst, luim en hopelijk prima weer. Op het einde van de week is niets nog hetzelfde.</p>
+                   <h2>Volgende afleveringen</h2>
+                   <ul class="serieVolgende">
+                       <!-- <li>2 MEI - 22u20</li>
+                        <li>3 MEI - 22u20</li>
+                        <li>4 MEI - 22u20</li>
+                        <li>5 MEI - 22u20</li>-->
+                   </ul>
+                   <h2>Opties</h2>
+                   <div class="serieOption">
+                        <label>Melding bij nieuwe aflevering</label><input type="checkbox">
+                    </div>
+                   <div class="serieOption">
+                        <label>Verwijderen bij datatekort</label><input type="checkbox" checked>
+                    </div>
+               </div>
+            </section>
+        </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <script>
+        
+        $('.afleveringen a[data-page]').on('click',function(){ 
+            var page = '.'+$(this).data('page');
+            
+            $('.aflList').addClass('hidden');
+            $('.serieInfo').addClass('hidden');
+            $(page).removeClass('hidden');
+
+        });
+    
+        $(document).ready(function(){
+           $.ajax({
+            type: "GET" ,
+            url: "home.xml" ,
+            dataType: "xml" ,
+            success: function(xml) {     
+            
+            var name = localStorage.getItem('serieNaam'),    
+                parent = $(xml).find('name:contains('+name+')').parent('item'),
+                synopsis = parent.find('synopsis').text(),
+                volgende = parent.find('volgende'),
+                afleveringen = parent.find('afleveringen'),
+                image = parent.find('image').text();
+                
+                // Plaats naam vd serie in titel
+                $('.serieNaam').html(parent.find('name'));
+                
+                // Afleveringen inladen
+                afleveringen.find('aflevering').each(function(){
+                    var aflImg = $(this).find('afbeelding').text(),
+                        aflDatum = $(this).find('datum').text(),
+                        aflInfo = $(this).find('info').text(),
+                        aflDiv = "<div style='background-image:url(../img/series/"+aflImg+")'><p><i class='fa fa-play-circle'></i>"+aflDatum+"<i class='fa fa-info'></i></p></div>";
+                       
+                    $('.aflList').append(aflDiv); 
+                });
+                
+                // Synopsis
+                $('.serieSynopsis').html(synopsis);
+                
+                //Volgende afleveringen
+                volgende.find('datum').each(function(){
+                    var datumText = $(this).text(),
+                        lijstItem = "<li>"+datumText+"</li>";
+                    $('.serieVolgende').append(lijstItem);
+                });
+                
+                var bodyImg = 'linear-gradient(0deg, rgba(240,240,240,0.89) 0%, rgba(240,240,240,0.80) 15%, rgba(240,240,240,0.95) 60%, #F0F0F0 89%), url(../img/series/'+image+')';
+    
+                $('body').css('background-image', bodyImg);
+                $('.serieHeader').css('background-color','rgba(0,0,0,0.00)');
+                
+                
+                resizeSeries();
+    
+            }   
+               
+        });
+        });
+        
+    </script>
+    
+</body>
+</html>

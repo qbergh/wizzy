@@ -1,0 +1,209 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/flickity.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+    
+    <style>
+        .carousel {
+            background: #EEE;
+        }
+
+    .carousel-cell {
+      width: 66%;
+      height: 15vh;
+      margin-right: 10px;
+      border-radius: 5px;
+      counter-increment: carousel-cell;
+
+    }
+
+.carousel-cell img {
+  display: block;
+  height: auto;
+    width:100%;
+}
+
+    </style>
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto"></div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header class="serieHeader">
+                <ul class="normalBar ">
+                    <li><a href="home.html"><i class="fa fa-arrow-left"></i></a></li>
+                    <li class="filmNaam">Filmnaam</li>
+                    <li><i class="fa fa-trash"></i></li>
+                    <li class="fav"><i class="fa fa-star-o"></i></li>
+                </ul>
+            </header>
+           <section class="serie film">
+                <div class="afleveringen">
+                    <h2><a href="#" data-page="filmInfo">Film</a></h2>
+                    <h2 class="hidden"><a href="#" data-page="serieInfo">Informatie</a></h2>
+                    <div class="filmInfo">
+                        <div class="coverPix">
+                            <img class="coverPic" src="">
+                       </div>
+                       <div class="carousel" data-flickity='{ "wrapAround": true }'>
+                       <!--   <div class="carousel-cell">
+                            <img src="../img/films/monstersuniversity.jpg" alt="orange tree" />
+                          </div>
+                          <div class="carousel-cell">
+                            <img src="../img/films/monstersuniversity2.jpg" alt="One World Trade" />
+                          </div>
+                          <div class="carousel-cell">
+                            <img src="../img/films/monstersuniversity3.jpg" alt="drizzle" />
+                          </div>
+                          <div class="carousel-cell">
+                            <img src="../img/films/monstersuniversity4.jpg" alt="cat nose" />
+                          </div>
+                          <div class="carousel-cell">
+                            <img src="../img/films/monstersuniversity5.jpg" alt="contrail" />
+                          </div>-->
+                        </div>
+                        
+                        <a href="#" class="watch">Bekijken</a>
+                    </div>
+                    
+               </div>
+               <div class="serieInfo">
+                   <h2>Synopsis</h2>
+                   <p class="filmSynopsis">A look at the relationship between Mike and Sulley during their days at Monsters University — when they weren't necessarily the best of friends.</p>
+                   <h2>Rating</h2>
+                   <div class="rating"><!--
+                        <img src="../img/imdb.jpg">
+                        <p>7.3</p>
+                       <img src="../img/rottenTomato.jpg">
+                    <p>78%</p>
+                 -->  </div>
+                   <h2>Details</h2>
+                   <div class="details">
+                       <!--<p>Rated: G</p>
+                       <p>Duur: 104 min</p>
+                       <p>Release date: 20 Jun 2013</p>
+                       <p>Land: Verenigde Staten</p>
+                       <p>Taal: Engels</p>
+                       <p>Director: Dan Scanlon</p>
+                       <p>Billy Crystal, John Goodman, Steve Buscemi, Helen Mirren, Joel Murray, Peter Sogn, Sean Hayes</p>-->
+                </div>
+               </div>
+            </section>
+        </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+   <!-- <script src="../js/flickity.min.js"></script>-->
+    <script src="../js/script.js"></script>
+    
+    <script>
+        
+        
+    $('.afleveringen a[data-page]').on('click',function(){ 
+            var page = '.'+$(this).data('page');
+            $('.filmInfo').addClass('hidden');
+            $('.serieInfo').addClass('hidden');
+            $(page).removeClass('hidden');
+        });
+        
+        
+        $(document).ready(function(){
+           $.ajax({
+            type: "GET" ,
+            url: "home.xml" ,
+            dataType: "xml" ,
+            success: function(xml) {     
+            
+            var name = localStorage.getItem('filmNaam'),    
+                parent = $(xml).find('name:contains('+name+')').parent('item'),
+                synopsis = parent.find('synopsis').text(),
+                imdb = parent.find('imdb').text(),
+                rotten = parent.find('rottentomato').text(),
+                details = parent.find('details'),
+                afbeeldingen = parent.find('afbeeldingen'),
+                image = parent.find('image').text();
+
+                
+                // Plaats naam vd film in titel
+                $('.filmNaam').html(parent.find('name'));
+                
+                // afbeeldingen inladen  
+                
+                afbeeldingen.find('afbeelding').each(function(){
+                    var imgCell = $(this).text();
+                    console.log(imgCell);
+                    var carouselCell = "<div class='carousel-cell'><img src='../img/films/"+imgCell+"' alt='"+name+"'/></div>";
+                    
+                    $('.flickity-slider').prepend(carouselCell);
+                    $('.carousel').prepend(carouselCell);
+                });
+                
+                
+                
+                // Synopsis
+                $('.filmSynopsis').html(synopsis);
+                
+                // rating
+                var rating = "<img src='../img/imdb.jpg'><p>"+imdb+"</p><img src='../img/rottenTomato.jpg'><p>"+rotten+"</p>";
+                $('.rating').append(rating);
+                
+                
+                //details
+                details.find('detail').each(function(){
+                    var detailText = $(this).text();
+                    var detail = "<p style='line-height:21px'>"+detailText+"</p>";
+                    $('.details').append(detail);
+                });
+                
+                var bodyImg = 'linear-gradient(0deg, rgba(240,240,240,0.89) 0%, rgba(240,240,240,0.80) 15%, rgba(240,240,240,0.95) 60%, #F0F0F0 89%), url(../img/films/'+image+')';
+    
+                $('body').css('background-image', bodyImg);
+                $('.serieHeader').css('background-color','rgba(0,0,0,0.00)');
+                
+                
+                setInterval(function() {
+                    var imgSrc = $('.carousel-cell.is-selected img').attr('src');
+                    $('.coverPic').attr('src',imgSrc);
+                }, 100);
+                
+                var flickityJS = "<script src='../js/flickity.min.js'>/<script>";
+                $('body').append(flickityJS);
+                
+            }   
+               
+        });
+        });
+        
+        
+    </script>
+    
+</body>
+</html>

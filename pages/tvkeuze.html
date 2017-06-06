@@ -1,0 +1,95 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto">
+            </div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header class="">
+                <ul class="normalBar">
+                    <li><i onclick="history.back();" class="fa fa-arrow-left"></i></li>
+                    <li>Ontspannen kijken</li>
+                    <li><a href="home.html"><i class="fa fa-home"></i></a></li>
+                </ul>
+            </header>
+             <section class="keuzePaneel">
+                <a href="suggesties.html"><div class="floatLeft suggestieOption">
+                    <div class="selectFunctie"></div>
+                    <h2>Beoordeel suggesties</h2>
+                    <p>Door te beoordelen welke series je wil zien, kunnen we automatisch betere voorstellen geven en relevante programma’s speciaal voor u opnemen.</p>
+                    </div></a>
+                <a href="planTV.html"><div class="floatRight kanaalOption">
+                 <div class="selectFunctie"></div>
+                    <h2>Plan je TV avond</h2>
+                    <p>Zin in een avondje zorgeloos naar series of films kijken? Laat Wizzy een op maat gemaakt voorstel maken aan de hand van wie er allemaal kijkt!</p>
+                </div></a>
+            </section>
+            <section class="suggesties hidden">
+            <ul class="navUL">
+                <li class="selected">Nieuwe suggesties &#40;5&#41;</li>
+                <li>Voorkeuren aanpassen</li>
+            </ul>
+                <div class="suggestionBox">
+                    <div class="floatLeft"></div>
+                    <div class="floatRight">
+                    <h1>Perfect 2.0</h1>
+                    <ul class="metaInfo">
+                        <li>SEIZOEN 2</li>
+                        <li>DONDERDAG OM 20:30</li>
+                    </ul>
+                    <ul class="serieTags">
+                        <li>LIFESTYLE</li>
+                        <li>MAGAZINE</li>
+                    </ul>
+                    <p>Karen Damen leidt in Perfect? twee maanden lang het perfecte leven. Ze houdt zich daarbij vast aan de deskundigen die ze in vrouwentijdschriften ziet. Ze neemt het advies van al deze voedingsgoeroes,  personal trainers en psychotherapeuten voor waar aan. Ze laat zich in Perfect? voorschrijven hoe ze moet zorgen voor een slank lichaam, een gezond leven, een gelukkig gezin en een perfecte garderobe. Voormalig K3-zangeres Karen Damen ondergaat het in Perfect? Ze laat zien hoe haalbaar de adviezen zijn en hoe het perfecte leven haar bevalt.</p>
+                    <div class="decideSuggestion">
+                        <a href="#">
+                        <div class="cancelSuggestion">
+                            <i class="fa fa-times" ></i>
+                        </div></a>
+                    <a href="#">
+                        <div class="acceptSuggestion">
+                            <i class="fa fa-check" ></i>
+                        </div></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="planTV hidden"></section>
+        </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>

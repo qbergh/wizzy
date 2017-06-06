@@ -1,0 +1,546 @@
+@media screen and (max-width:1000px){
+    .serieInfo .serieSynopsis{
+        font-size:12px;
+    }
+}
+
+@media screen and (max-width:910px){
+    main section{margin-top:120px;}
+    header{box-shadow:0 0 30px 17px #F0F0F0;}
+    /* ACCOUNT PAGE */
+
+    .myAccount .options{
+        display:grid;
+        grid-template-columns: auto;
+}
+
+    .myAccount .personalOptions{
+        grid-column-start:1;
+        grid-column-end: 1;
+        padding-bottom:30px;
+    }
+
+    .myAccount .generalOptions{
+        grid-column-start:1;
+        grid-column-end: 1;
+        padding-bottom:30px;
+    }
+    
+    .myAccount .options > :first-child{
+        border:none;
+        padding-right:0;
+    }
+    
+    
+    /* FAQ */
+    
+    .FAQ{margin-top:120px;}
+    .thirds-subgrid{
+        display:block;
+    }
+    
+    .FAQ .thirds-subgrid{
+        margin-top:50px;
+    }
+    
+    .first-third,.second-third{
+        margin:0 0 30px 0;
+    }
+    
+    .third-third{margin-bottom:60px;}
+    
+    .FAQ h2{
+        padding:10px 15px;
+        background-color:#AFADAF;
+        color:white;
+    }
+    
+    /* TV KEUZE */
+    .keuzePaneel{margin-top:130px;}
+    .keuzePaneel .suggestieOption, .keuzePaneel .kanaalOption{
+        width:100%;
+        margin-bottom:5%;
+    }
+    
+    .keuzePaneel .suggestieOption .selectFunctie, .keuzePaneel .kanaalOption .selectFunctie{
+        background-size:cover;
+        background-position:left;
+        height:200px;
+    }
+    
+    .keuzePaneel .kanaalOption p, .keuzePaneel .suggestieOption p {
+        display:none;   
+    }
+    
+    /* SUGGESTIES */
+    
+    .suggesties,.aanpassenSuggesties{margin-top:120px;}
+    .suggesties .suggestionBox{
+        height:auto;
+        display:grid;
+        grid-template-columns:auto;
+        grid-template-rows:200px auto;
+        margin-bottom:40px;
+    }
+    
+    .suggestionPicture{
+        grid-column-start: 1;
+        grid-row-start: 1;
+        border-right:none;
+        border-bottom: 2px solid #979797;
+        height:200px;
+    }
+    
+    .suggestionPicture img{
+        position:initial;
+        width:100%;
+        height:auto;
+    }
+    
+    .suggestionInfo{
+        grid-column-start:1;
+        grid-row-start:2;
+    }
+    
+    .suggestionBox .suggestionInfo p{
+        font-size:11px;
+        line-height:16px !important;
+    }
+    
+    .decideSuggestion{
+        height:40px;
+        margin-bottom:40px;
+    }
+    
+    /* INSTELLINGEN */
+    
+    .half-grid{
+        display:block;
+    }
+    
+    .instellingen-grid{
+        display:block;
+    }
+    
+    .meldingen,.databeheer,.appInfo{
+        display:block;
+        width:inherit;
+    }
+    
+    .meldingen .showAll, .databeheer .deleteOld{
+        width:inherit;
+    }
+    
+    .appInfo .version{
+        float:none;
+        margin-bottom:60px;
+    }
+    .databeheer .pieContainer p:nth-of-type(1),.databeheer .pieContainer p:nth-of-type(2),.databeheer .pieContainer p:nth-of-type(3){
+        display:none;
+    }
+    
+    .percentage{
+        display:inline-block;
+    }
+    
+    /* PLANTV */
+    
+    .choiceBox{
+        width:50vw;
+    }
+    
+    .boxContent .profile{
+        margin:0 15px;
+        width:70px;
+        height:70px;
+    }
+    
+    .watchNow{
+        width:150px;
+        padding:5px;
+    }
+    .watchNow:first-of-type{
+        margin-right:10px;
+    }
+
+    .watchNow i{
+        width:100%;
+        text-align: center;
+        font-size:36px;
+        margin-bottom:20px;
+    }
+    
+    .choiceBox a{
+        width:60px;
+        font-size:14px;
+    }
+    
+    .watchChoice{
+        width:60px;
+        padding:10px 15px;
+        margin: 15px 15px 0 0;
+    }
+
+    .watchChoice i{
+        font-size:26px;
+        margin-bottom:5px;
+    }
+    
+    .watchChoice p{
+        font-size:10px;
+    }
+
+    .watchChoice:nth-of-type(1),.watchChoice:nth-of-type(4){
+        margin-left:15px;
+    }
+    
+    /* SERIES */
+    .serie{
+        grid-template-columns:98%;
+    }
+    
+    .afleveringen{
+        grid-column-start:1;
+    }
+    
+    .serie .afleveringen h2{
+        display:inline-block!important;
+    }
+    
+    .serie .afleveringen h2:nth-of-type(2){
+        float:right;
+    }
+    
+    .serie .serieInfo{
+        grid-column-start: 1;
+        margin-bottom:40px;
+    }
+    
+    .afleveringen h2 a{
+        cursor:pointer;
+    }
+    
+    .filmInfo{
+        height:70vh;
+    }
+
+    .coverPix {
+        max-height:40vh;
+        min-height:20vh;
+        height:auto;
+    }
+    
+}
+
+@media screen and (max-width:760px){
+    .FAQ .searchBar input{
+        width:75%;
+    }
+    
+    .stappenplan{
+        grid-template-columns: repeat(2,40%);
+        grid-gap:10%;
+    }
+}
+
+@media screen and (max-width:680px){
+    .navUL li{
+        margin-right:0;
+        font-size:14px;
+    }
+    
+    .navUL li:first-of-type{
+        float:left;
+    }
+    
+    .navUL li:nth-of-type(2){
+        float:right
+    }
+    
+    .navUL{height:20px;}
+    
+    
+    .aanpassenSuggesties .fa.fa-search{
+        display:none;
+    }
+    /* PLAN TV*/
+    .watchNow{
+        width:80px;
+        padding:5px;
+    }
+    .watchNow:first-of-type{
+        margin-right:5px;
+    }
+    
+    .watchNow p{
+        font-size:12px;
+    }
+    .watchNow i{
+        text-align: center;
+        font-size:36px;
+        margin-bottom:20px;
+    }
+    
+    .choiceBox a{
+        width:60px;
+        font-size:14px;
+    }
+    
+}
+
+@media screen and (max-width:670px){
+    .suggestionBox .cancelSuggestion, .suggestionBox .acceptSuggestion{
+        width:100px;
+    }
+    .suggestionBox .suggestionInfo .metaInfo li{
+        font-size:11px;
+        margin-right:20px;
+    }
+    
+    .suggestionPicture{
+        height:20vh;
+    }
+     .suggesties .suggestionBox{
+        grid-template-rows:20vh auto;
+    }
+    
+    /* PLAN TV */
+    
+    .choiceBox{
+        width:inherit;
+    }
+    
+    .boxContent .profile{
+        margin: 10px 100px;
+        width:60px;
+        height:60px;
+    }
+    
+    .watchChoice{
+        width:40px;
+        padding:10px 15px;
+        margin: 10px 10px 0 0;
+    }
+
+    .watchChoice i{
+        font-size:26px;
+        margin-bottom:5px;
+    }
+    
+    .watchChoice p{
+        font-size:8px;
+    }
+
+    .watchChoice:nth-of-type(1),.watchChoice:nth-of-type(4){
+        margin-left:0;
+    }
+        
+}
+
+@media screen and (max-width:540px){
+    .grid_container{
+        grid-template-columns: 40px auto 40px;
+        grid-template-rows: 100px auto;
+    }
+    
+    aside{
+        grid-row-start: 1;
+        width:100vw;
+        height:70px;
+        display:grid;
+        align-items: center;
+        justify-content:space-between;
+        grid-template-columns: auto;
+    }
+    
+    aside .icons{
+        display:none;
+    }
+    
+    aside .profielfoto{
+        margin: 0 0 0 40px;
+        display:inline-block;
+        grid-column-start:1;
+        position:relative;
+        top:20px;
+        width:55px;
+        height:55px;
+    }
+    
+    aside .fa.fa-bars.hamburger{
+        display:inline-block;
+        width:13px;
+        float:right;
+        margin-right:40px;
+        grid-column-start:2;
+        cursor:pointer;
+    }
+    
+    aside .fa.fa-bars.hamburger:hover{
+        color:#979797;
+    }
+    
+    main{
+        grid-column-start:2;
+        grid-column-end:2;
+        grid-row-start: 2;
+    }
+    
+    header{
+        margin-top:-30px;
+    }
+    
+    section{
+        margin-top:80px;
+    }
+    
+    .FAQ{margin-top:90px;}
+    .FAQ .thirds-subgrid{margin-top:70px;}
+    .keuzePaneel{margin-top:100px;}
+    
+    .suggestionPicture{
+        height:150px;
+    }
+     .suggesties .suggestionBox{
+        grid-template-rows:150px auto;
+    }
+    
+    .suggesties,.aanpassenSuggesties{margin-top:90px;}
+    
+    .aanpassenSuggesties .suggestionBox{
+        height:65vh;
+    }
+    
+     /* PLAN TV */
+    
+    .planTV{
+        display:block;
+        margin-top:100px;
+        height:auto;
+    }
+    
+    .choiceBox{
+        display:block;
+        padding:0;
+        background-color:#F0F0F0;
+        box-shadow: none;
+        height:auto;
+    }
+    
+    .step1,.step2,.step3{
+        display:block;
+        height:auto;
+    }
+    
+    .boxContent{
+        display:grid;
+        justify-content: center;
+        margin-bottom:30px;
+        height:52vh;
+        width:inherit;
+    }
+    
+    .boxContent .profile{
+        margin: 20px 0;
+        width:90px;
+        height:90px;
+        display:block;
+    }
+    
+    .watchNow:first-of-type{margin:0px;}
+    .watchNow{
+        width:inherit;
+        width:70vw;
+        display:grid;
+        justify-content: center;
+        align-content: center;
+        outline:1px solid #1C6E9C;
+        height:150px;
+    }
+    
+    .watchNow i{
+        font-size:38px;    
+    }
+    
+    .watchNow p{
+        font-size:16px;
+    }
+    
+    .step3 .boxContent{
+        display:block;
+        display:grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows:repeat(3,1fr);
+        grid-gap:1rem;
+        grid-column-gap:0rem;
+    }
+    
+    .watchChoice:nth-of-type(odd){
+        grid-column-start:1;
+        margin-left:30px;
+    }
+    
+    .watchChoice:nth-of-type(even){
+        grid-column-start:2;
+        margin-left:30px;
+    }
+    
+    .watchChoice:nth-of-type(1),.watchChoice:nth-of-type(2){
+        grid-row-start:1;
+    }
+    
+    .watchChoice:nth-of-type(3),.watchChoice:nth-of-type(4){
+        grid-row-start:2;
+    }
+    
+    .watchChoice:nth-of-type(5),.watchChoice:nth-of-type(6){
+        grid-row-start:3;
+    }
+    
+    .watchChoice{
+        margin:20px 20px 0 0;
+        display:inline-block;
+        width:100px;
+        padding:20px 0;
+        grid-column-start: 1;
+        
+    }
+    
+    .watchChoice i{
+        font-size:30px;
+    }
+    
+    .watchChoice p{
+        font-size:16px;
+    }
+    
+    .watchChoice.top{
+        margin-top:20px!important;
+    }
+    
+    .serie{
+        grid-template-columns:99%;
+        margin-top:90px;
+    }
+    
+    
+    .aflList, .filmInfo{
+        height:68vh;
+    }
+    
+    .filmInfo{
+        padding-bottom:100px;
+        margin-bottom:50px;
+        height:auto;
+    }
+    
+    .coverPix{
+        max-height:50px;
+    }
+    
+    .homeNormalBar li:nth-of-type(1){
+        margin-left:20%;
+    }
+    
+}
+

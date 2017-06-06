@@ -1,0 +1,170 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy - puur kijkplezier</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto"></div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header class="headerShadow">
+                <ul class="homeNormalBar">
+                    <li><a href="#"><i class="fa fa-search"></i></a></li>
+                    <li class="selected" data-filter=".series"><a href="#">Series</a></li>
+                    <li data-filter=".films"><a href="#">Films</a></li>
+                </ul>
+                <ul class="homeSearchBar hidden">
+                    <li><i class="fa fa-search"></i></li>
+                    <li><input type="text" name="search" placeholder="Naar wat zoekt u?"/></li>
+                    <li><i class="fa fa-cogs" aria-hidden="true"></i></li>
+                </ul>
+                <ul class="normalBar hidden">
+                    <li><a href="index.html"><i class="fa fa-times"></i></a></li>
+                    <li>Mijn account</li>
+                </ul>
+            </header>
+            <section class="gallery">
+                
+            </section>
+           
+        </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/jBox.min.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <script>       
+        $(document).ready(function(){            
+           $.ajax({
+            type: "GET" ,
+            url: "home.xml" ,
+            dataType: "xml" ,
+            success: function(xml) {     
+                
+            $(xml).find('item').each(function(){
+                var name = $(this).find('name').text(),
+                    image = $(this).find('image').text(),
+                    from = $(this).find('from').text(),
+                    type = $(this).find('type').text();              
+                
+                var galleryItem = "<div class='gallery_item";
+                
+                switch(from){
+                    case 'television':
+                                    galleryItem += " television ";
+                                    break;
+                    case 'netflix':
+                                    galleryItem += " netflix ";
+                                    break;
+                    case 'amazon':
+                                    galleryItem += " amazon ";
+                                    break;    
+                           };
+                
+                switch(type){
+                    case 'serie':
+                                    galleryItem += "series'";
+                                    break;
+                    case 'film':
+                                    galleryItem += "films'";
+                                    break;  
+                           };
+                
+                galleryItem += "><a href='";
+            
+                switch(type){
+                    case 'serie':
+                                    galleryItem += "serie.html' data-serie";
+                                    galleryItem += "="+name+"><div class='img_container'>";
+                                    galleryItem += "<img src='../img/series/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p><i";
+                                    break;
+                    case 'film':
+                                    galleryItem += "film.html' data-film";
+                                    galleryItem += "="+name+"><div class='img_container'>";
+                                    galleryItem += "<img src='../img/films/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p><i";
+                                    break;  
+                           };
+                
+                switch(from){
+                    case 'television':
+                                    galleryItem += " class='fa fa-television'></i>"+name+"</p>";
+                                    break;
+                    case 'netflix':
+                                    galleryItem += "><img src='../img/netflix.png'></i>"+name+"</p>";
+                                    break;
+                    case 'amazon':
+                                    galleryItem += "><img src='../img/amazon_logo.png'></i>"+name+"</p>";
+                                    break;    
+                           };
+                
+                galleryItem += "</div></a></div>";
+                
+                $('.gallery').append(galleryItem);
+            }); 
+                
+                var $grid = $('.gallery').isotope({
+                      // main isotope options
+                    percentPosition: true,
+                      itemSelector: '.gallery_item',
+                      // set layoutMode
+                      layoutMode: 'masonry'
+                    });
+                
+                
+                
+                $grid.isotope({ filter: '.series' });
+             
+                $('[data-filter]').on( 'click', function() {
+                    $('[data-filter].selected').removeClass('selected');
+                    $(this).addClass('selected');
+                    var filterValue = $(this).attr('data-filter');
+                    console.log(filterValue);
+                    $grid.isotope({ filter: filterValue });
+                });
+                
+                $('.gallery_item a').on('click',function(){
+                    var serieNaam = $(this).data('serie');
+                    var filmNaam = $(this).data('film');
+                    localStorage.setItem('serieNaam',serieNaam);
+                    localStorage.setItem('filmNaam',filmNaam);
+            });
+                //homeHandler();
+
+                 
+                
+            }              
+        });
+        });
+        
+        
+    </script>
+</body>
+</html>

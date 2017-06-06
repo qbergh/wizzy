@@ -1,0 +1,297 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto"></div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header >
+                <ul class="normalBar">
+                    <li><i onclick="history.back();" class="fa fa-arrow-left"></i></li>
+                    <li>Helpcentrum</li>
+                    <li><a href="home.html"><i class="fa fa-home"></i></a></li>
+                </ul>
+            </header>
+           <section class="FAQ">
+                <div class="searchBar">
+                    <input type="search" id="jetsSearch" placeholder="Kan ik je helpen?">
+                    <i class="fa fa-search"></i>
+                    <i class="fa fa-times hidden"></i>
+                </div>
+                <div class="thirds-subgrid">
+                    <div class="first-third">
+                        <div class="faq-header">
+                            <h2>Account</h2>
+                            <i></i>
+                        </div>
+                        <ul>
+                            <a href='#' data-filter="wachtwoordWijzigen"><li>Wachtwoord wijzigen</li></a>
+                            <a href='#' data-filter="error"><li>Email wijzigen</li></a>
+                            <a href='#' data-filter="error"><li>Telefoonnummer wijzigen</li></a>
+                            <a href='#' data-filter="error"><li>Profielen aanmaken</li></a>
+                            <a href='#' data-filter="error"><li>Wisselen tussen profielen</li></a>
+                            <a href='#' data-filter="error"><li>Suggesties aanpassen</li></a>
+                            <a href='#' data-filter="error"><li>Account verwijderen</li></a>
+                        </ul>
+                    </div>
+                    <div class="second-third">
+                        <div class="faq-header">
+                            <h2>Betalingsopties</h2>
+                            <i></i>
+                        </div>
+                        <ul>
+                            <a href='#' data-filter="error"><li>Beschikbare betalingsopties</li></a>
+                            <a href='#' data-filter="error"><li>Paypal inschakelen</li></a>
+                            <a href='#' data-filter="error"><li>Mastercard gebruiken</li></a>
+                            <a href='#' data-filter="error"><li>Factureringsgegevens</li></a>
+                            <a href='#' data-filter="error"><li>Opzegtermijn</li></a>
+                            <a href='#' data-filter="error"><li>Betalingswijze aanpassen</li></a>
+                            <a href='#' data-filter="error"><li>Bevestiging betaling</li></a>
+                        </ul>
+                    </div>
+                    <div class="third-third">
+                        <h2>Technische problemen</h2>
+                        <ul>
+                            <a href='#' data-filter="error"><li>Koppelen aan je digicorder</li></a>
+                            <a href='#' data-filter="error"><li>Error 208a en 209a</li></a>
+                            <a href='#' data-filter="error"><li>Ondersteuning tablets</li></a>
+                            <a href='#' data-filter="error"><li>Verbinding maken met internet</li></a>
+                            <a href='#' data-filter="error"><li>Offline modus</li></a>
+                            <a href='#' data-filter="error"><li>Afleveringen automatisch afspelen</li></a>
+                            <a href='#' data-filter="error"><li>Crash met error 40xb en ah34</li></a>
+                        </ul>
+                    </div>
+                </div>
+               <div class="FAQ_search hidden">
+                <table>
+                    <tbody id="jetsContent">
+                        <tr data-filter="wachtwoordWijzigen">
+                            <td>Wachtwoord wijzigen</td>
+                            <td>Om uw wachtwoord te wijzigen, klikt u op uw afbeelding linksboven. Dit brengt u naar het scherm waar u uw gegevens kan aanpassen, waaronder ook uw wachtwoord. Wanneer u op ….</td> 
+                        </tr>
+                        <tr data-filter="wachtwoordVergeten">
+                            <td>Wachtwoord vergeten</td>
+                            <td>Bent u uw wachtwoord vergeten? Geen probleem! Identificeer u via deze link en u kan in een seconde weer inloggen. U kan zich identificeren aan de hand van de volgende opties …</td> 
+                        </tr>
+                        <tr data-filter="wachtwoordBeveiligen">
+                            <td>Wachtwoord beveiligen</td>
+                            <td>Bent u op zoek naar een goed beveiligd wachtwoord? Hier vindt u onze aanbevelingen voor een goed wachtwoord. Een eerste tip is zeker en vast al: Gebruik nooit ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>E-mail wijzigen</td>
+                            <td>Om uw wachtwoord te wijzigen, klikt u op uw afbeelding linksboven. Dit brengt u naar het scherm waar u uw gegevens kan aanpassen, waaronder ook uw wachtwoord. Wanneer u op ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>E-mail vergeten</td>
+                            <td>Bent u uw e-mail vergeten? Geen probleem! Identificeer u via deze link en u kan in een seconde weer inloggen. U kan zich identificeren aan de hand van de volgende opties …</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Telefoonnummer wijzigen</td>
+                            <td>Indien u uw telefoonnummer gekoppeld heeft aan uw account, is het mogelijk om deze aan te passen. Klik hieronder op de button. Binnen een paar minuutjes ontvangt u van ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Profielen aanmaken</td>
+                            <td>Kijken is leuker tezamen. Voeg profielen toe voor elk gezin van het huishouden. Hier ontdekt u stap voor stap hoe dit moet. Vergeet niet dat er een limiet is van ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Wisselen tussen profielen</td>
+                            <td>Kijkt u niet vanop het juiste profiel? In geen tijd bent u weer op het juiste profiel. Volg deze makkelijke stappen en u kan verder kijken naar uw lievelingsserie zonder ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Suggesties aanpassen</td>
+                            <td>Krijgt u slechte suggesties voorgeschoteld? Dan heeft Wizzy vast en zeker uw persoonlijke smaak verkeerd ingeschat. Laat ons opnieuw kennismaken! Vul snel deze survey in en ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Account verwijderen</td>
+                            <td>Wilt u ons echt verlaten? Zou u dat wel doen? Indien u op beide vragen resoluut &#39;ja&#39; antwoord, dan zullen we u helaas moeten laten gaan. Spijtig genoeg kan u ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Beschikbare betalingsopties</td>
+                            <td>Wilt u ons deze maand ook verblijen met een centje meer? Kies snel uw betalingsmethode zodat we onze developers een pint kunnen betalen! U heeft de keuze uit volgende ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Paypal inschakelen</td>
+                            <td>Onze meest favoriete optie is Paypal! Vindt u dat ook? Dan heeft u geluk! U kan namelijk via Paypal uw maandelijkse betaling doen. Dit doe je simpelweg door ons te storten naar ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Mastercard gebruiken</td>
+                            <td>Onze meest favoriete optie is Mastercard! Vindt u dat ook? Dan heeft u geluk! U kan namelijk via Mastercard uw maandelijkse betaling doen. Dit doe je simpelweg door ons te storten naar ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Profielen aanmaken</td>
+                            <td>Kijken is leuker tezamen. Voeg profielen toe voor elk gezin van het huishouden. Hier ontdekt u stap voor stap hoe dit moet. Vergeet niet dat er een limiet is van ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Factureringsgegevens</td>
+                            <td>Wil u weten waar al uw geld naartoe gaat? Vrees niet, het is zeker en vast niet naar Wizzy! Met onze spotgoedkope service heeft u een personal assistant die al uw ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Opzegtermijn</td>
+                            <td>Wilt u Wizzy even uitproberen? Dat kan perfect! Wizzy heeft een uitstekend beleid wat betreft opzegtermijnen. Laat dit dan ook zeker geen hindernis zijn om u te overhalen ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Betalingswijze aanpassen</td>
+                            <td>Bent u het beu om steeds opnieuw op de zelfde manier te betalen? Liever eens via Paypal of Mastercard? Geen probleem, bij Wizzy kan het allemaal! Vul gewoon even je lievelingsbetalingsmethode in en wij zorgen ervoor dat uw geld op onze rekening belandt ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Bevestiging betaling</td>
+                            <td>Heef t u graag een bevestiging van uw betaling? Deze ontvangt u automatisch in uw bus op uw adres. Liever niet zo lang wachten? Vink dan even de optie aan o m dit via e-mail te ontvangen ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Koppelen aan je digicorder</td>
+                            <td>Hoe groter hoe beter, zeker bij een scherm! Koppel je digicorder aan om via het grootste scherm in huis te kijken: het televisiescherm. Jouw 4K scherm wacht op de nieuwste ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Error 208a en 209a</td>
+                            <td>Heeft u error 208a of zelfs 209a? Indien u enkel 208a heeft, kan u gerust zijn. Deze error is heel gemakkelijk op te lossen. Het geheim om deze weg te krijgen, is ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Ondersteuning tablets</td>
+                            <td>Heeft u een tablet maar denkt u dat wij hem niet ondersteunen? Think again! Wizzy ondersteunt alle mogelijke modellen. Bent u nog steeds niet overtuigd? Kom dan hier de  ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Verbinding maken met internet</td>
+                            <td>Internet maakt alles plezanter. Via deze 5 stappen ben je in een minuutje verbonden. Doe jezelf een plezier en verbind je internet hier! Snel! Haast je! ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Offline modus</td>
+                            <td>Geen zin om verbonden te zijn met het internet? Wij ook niet! Daarom is Wizzy ook offline bruikbaar! Zet je in je luie zetel en je voetjes op een verhoogje en geniet van ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Afleveringen automatisch afspelen</td>
+                            <td>Wil je eens bingewatchen? Wat dacht je nou? Dat is zéker en vast een mogelijkheid bij Wizzy! In 5 stappen ben je klaar om te bingewatchen. Stap 1: maak popcorn! ….</td> 
+                        </tr>
+                        <tr data-filter="error">
+                            <td>Crash met error 40xb - ah34</td>
+                            <td>Heeft u error 40xb? Of zelfs ah34? Jammer. Niets aan te doen. Gelieve ons hierover een mailtje te sturen zodat we ons slimste aapje ernaar kunnen laten kijken ….</td> 
+                        </tr>
+                    </tbody>
+                </table>
+               </div>
+                <div class="FAQ_article wachtwoordWijzigen hidden">
+                    <h3>Wachtwoord wijzigen</h3>
+                    <p>Om uw wachtwoord te wijzigen, klikt u op uw afbeelding linksboven. Dit brengt u naar het scherm waar u uw gegevens kan aanpassen, waaronder ook uw wachtwoord. Wanneer u op deze pagina bent, klikt u op het aanpas icoontje naast uw huidig wachtwoord. U kan dan uw wachtwoord aanpassen. Let er op dat deze minimum uit 4 tekens moet bestaan. Indien u meer wil weten over hoe u uw wachtwoord zo veilig mogelijk maakt, kan u <span data-filter="error">hier</span> terecht. </p>
+                    <h3>Stappenplan</h3>
+                    
+                    <div class="stappenplan">
+                        <div>
+                            <img src="../img/faq/img1.png">
+                            <p> Klik op de profielfoto, deze kan u vinden in de linkerbovenhoek.</p>
+                        </div>    
+                        <div>
+                            <img src="../img/faq/img2.png">
+                            <p>Klik op het icoontje om je wachtwoord aan te passen.</p>
+                        </div>
+                        <div>
+                            <img src="../img/faq/img3.png">
+                            <p>Vul uw nieuw wachtwoord naar keuze in.</p>
+                        </div>
+                        <div>
+                            <img src="../img/faq/img4.png">
+                             <p>Klik op 'opslaan'.</p>
+                         </div>   
+                        </div>
+                    
+                    <div class="FAQ_article_footer">
+                        <p> Was deze info nuttig?
+                        <b>Neen</b>
+                        <b>Ja</b>
+                        </p>
+                    </div>
+               </div>
+               <div class="FAQ_article error hidden">
+                   <div class="choiceBox">
+                       <i class="fa fa-meh-o" aria-hidden="true"></i>                       
+                       <h3>Whoops!</h3>
+                       <p>We couldn't find the page you were looking for.</p>
+                       <p><a href="faq.html">Click here to get back on track</a></p>
+                    </div>
+               </div>
+            </section>
+           </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/jets.min.js"></script>
+    <script src="../js/script.js"></script>
+    
+    <script>
+        var articleCount = $('.FAQ_article').length;
+        
+        $('#jetsSearch').on('focus',function(){
+                $('.FAQ_search').removeClass('hidden');
+                $('.thirds-subgrid').addClass('hidden');
+                $('.searchBar .fa.fa-search').addClass('hidden');
+                $('.searchBar .fa.fa-times').removeClass('hidden'); 
+            
+                for(var i = 0; i < articleCount; i++){
+                    $('.FAQ_article:eq('+i+')').addClass('hidden');
+                }
+        });
+        
+        $('.searchBar .fa.fa-times').on('click',function(){
+            $('.FAQ_search').addClass('hidden');
+            $('.thirds-subgrid').removeClass('hidden');
+            $('.searchBar .fa.fa-search').removeClass('hidden');
+            $('.searchBar .fa.fa-times').addClass('hidden');
+            
+            for(var i = 0; i < articleCount; i++){
+                $('.FAQ_article:eq('+i+')').addClass('hidden');
+            }
+        });
+        
+        var jets = new Jets({
+          searchTag: '#jetsSearch',
+          contentTag: '#jetsContent',
+          columns: [0]
+        });
+        
+             
+        $('[data-filter]').on( 'click', function() {
+            var filterValue = $(this).attr('data-filter');
+            $('.thirds-subgrid').addClass('hidden');
+            $('.searchBar .fa.fa-search').addClass('hidden');
+            $('.searchBar .fa.fa-times').removeClass('hidden'); 
+            $('.FAQ_search').addClass('hidden');
+            
+            for(var i = 0; i < articleCount; i++){
+                $('.FAQ_article:eq('+i+')').addClass('hidden');
+            }
+            
+            
+            $('.'+filterValue).removeClass('hidden');
+         });
+
+    </script>
+
+</body>
+</html>

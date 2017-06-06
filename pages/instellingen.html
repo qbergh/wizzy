@@ -1,0 +1,116 @@
+<!doctype html>
+
+<html lang="NL">
+<head>
+  <meta charset="utf-8">
+
+    <title>Wizzy</title>
+    <meta name="description" content="Bachelorproef van Quinten Berghman in opdracht van de Artesis Plantijn Hogeschool Antwerpen">
+    <meta name="author" content="Quinten Berghman">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../img/logo.jpg">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/mediaquery.css">
+</head>
+
+<body>
+    
+    <div class="grid_container">
+        <aside>
+            <a href="account.html"><div class="profielfoto"></div></a>
+            <i class="fa fa-bars hamburger"></i>
+            <div class="icons">
+                <ul>
+                    <li><a href="tvkeuze.html"><i class="fa fa-television"></i></a></li>
+                    <li><a href="faq.html"><i class="fa fa-question"></i></a></li>
+                    <li><a href="instellingen.html"><i class="fa fa-wrench"></i></a></li>
+                </ul>
+            </div>
+        </aside>
+        
+        <main>
+            <header>
+                <ul class="normalBar">
+                    <li><i onclick="history.back();" class="fa fa-arrow-left"></i></li>
+                    <li>Instellingen</li>
+                    <li><a href="home.html"><i class="fa fa-home"></i></a></li>
+                </ul>
+            </header>
+            <section class="instellingen">
+                <div class="instellingen-grid">
+                    <div class="half-grid">
+                <div class="meldingen">
+                    <h2>Meldingen</h2>
+                    <div class="notifEpisode">
+                        <label>Melding bij nieuwe afleveringen</label><input type="checkbox">
+                    </div>
+                    <ul class="latestNotifications">
+                        <li><a href="#"><i class="fa fa-times"></i></a> <p>The Big Bang Theory</p></li>
+                        <li><a href="#"><i class="fa fa-times"></i></a> <p>The Walking Dead</p></li>
+                        <li><a href="#"><i class="fa fa-times"></i></a> <p>Gert Late Night</p></li>
+                    </ul>
+                        <div class="showAll button">
+                            <p><a href="#">Toon alle</a></p>
+                        </div>
+                    <div class="notifSuggestion">
+                        <label>Melding bij nieuwe suggesties</label><input type="checkbox">
+                    </div>
+                </div>
+                <div class="databeheer">
+                    <h2>Databeheer</h2>
+                    <div class="pieContainer">
+                        <p>25%</p>
+                        <p>18%</p>
+                        <p>57%</p>
+                        <div class="dataPie"></div>
+                    </div>
+                    <ul>
+                        <li><div></div> <span class="percentage">25%</span> Vrije ruimte</li>
+                        <li><div></div> <span class="percentage">18%</span> Series</li>
+                        <li><div></div> <span class="percentage">57%</span> Films</li>
+                    </ul>
+                    <a href="#">
+                        <div class="deleteOld button">
+                            <p><a href="#">Verwijder oude opnames</a></p>
+                        </div></a>
+                    </div> </div>
+                <div class="appInfo">
+                    <h2>Applicatie informatie</h2>
+                    <ul class="legal">
+                        <li><a href="#">Algemene gebruiksvoorwaarden</a></li>
+                        <li><a href="#">Privacybeleid</a></li>
+                        <li><a href="#">Geef ons feedback</a></li>
+                        <li><a href="#">Contacteer ons</a></li>
+                    </ul>
+                    <ul class="version">
+                        <li>
+                            <p>Versie</p>
+                            <p>0.01</p>
+                        </li>
+                        <li>
+                            <p>release</p>
+                            <p>20/5/2017</p>
+                        </li>
+                        <li>
+                            <p>Ontwikkelaar</p>
+                            <p>Wizzy</p>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+            </section>
+        </main>
+        
+         <footer></footer>
+    </div>
+    
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <!--<script src="../js/prefixfree.min.js"></script>-->
+    <script src="../js/comic-gradient.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
