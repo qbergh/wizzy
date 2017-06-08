@@ -58,7 +58,6 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/jBox.min.js"></script>
     <script src="../js/script.js"></script>
     
     <script>       
@@ -73,7 +72,8 @@
                 var name = $(this).find('name').text(),
                     image = $(this).find('image').text(),
                     from = $(this).find('from').text(),
-                    type = $(this).find('type').text();              
+                    type = $(this).find('type').text(),
+                    newAfl = $(this).find('newAfl').text();
                 
                 var galleryItem = "<div class='gallery_item";
                 
@@ -125,7 +125,21 @@
                                     break;    
                            };
                 
-                galleryItem += "</div></a></div>";
+                galleryItem += "</div></a>";
+                
+                switch(type){
+                    case 'film':   break;
+                                    
+                    case 'serie':   switch(newAfl){
+                                        case '0':       break;
+                                        default:        galleryItem += "<div class='newAfl'><p>+"+newAfl+"</p></div>";
+                                                        break;
+                                    }
+                                    break;  
+                           };
+                
+                
+                galleryItem +="</div>";
                 
                 $('.gallery').append(galleryItem);
             }); 
@@ -133,9 +147,11 @@
                 var $grid = $('.gallery').isotope({
                       // main isotope options
                     percentPosition: true,
+                    fitWidth:true,
                       itemSelector: '.gallery_item',
                       // set layoutMode
-                      layoutMode: 'masonry'
+                      //layoutMode: 'masonry'
+                    layoutMode:'fitRows'
                     });
                 
                 

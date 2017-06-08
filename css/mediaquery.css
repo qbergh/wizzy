@@ -1,3 +1,61 @@
+@media screen and (min-width:910px) and (min-height:745px){
+    .instellingen{
+        display:grid;
+        grid-template-columns: 80vw;
+        grid-template-rows:80vh;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .thirds-subgrid, .FAQ_search,.FAQ_article{
+        margin:0;
+        height:80vh;
+        align-items:center;
+    }
+    
+    .keuzePaneel {
+        margin-top:30vh;
+    }
+    
+    .keuzePaneel p,.suggestionBox .suggestionInfo p{
+        font-size:16px;
+    }
+    
+    .FAQ h2{
+        font-size:24px;
+    }
+    
+    .FAQ li,.FAQ .FAQ_search tr td, .FAQ_article p{
+        font-size:14px;
+    }
+    
+    .FAQ .FAQ_search tr td:first-of-type, .FAQ_article h3{
+        font-size:20px;
+    }
+    
+    .suggestionBox{
+        margin-top:10vh !important;
+    }
+    .accountProfiles{
+        margin-top:25vh;
+    }
+}
+
+
+@media screen and (max-width:1005px){
+    .instellingen-grid{
+        grid-template-columns: 1fr 280px 1fr 280px 1fr;
+    }
+
+    .databeheer{
+        grid-column-start:4;
+    }
+
+    .appInfo{
+        grid-column-end:5;
+    }
+}
+
 @media screen and (max-width:1000px){
     .serieInfo .serieSynopsis{
         font-size:12px;
@@ -367,7 +425,7 @@
         height:55px;
     }
     
-    aside .fa.fa-bars.hamburger{
+    aside .fa.fa-bars.hamburger, aside .fa.fa-times.hamburger{
         display:inline-block;
         width:13px;
         float:right;
@@ -542,5 +600,25 @@
         margin-left:20%;
     }
     
+    .boxButtons{
+        margin-top:70px;
+    }
+    
+    .planTV{
+        margin-bottom: 40px;
+    }
+    
+}
+
+@media screen and (max-width:375px){
+    header ul li{
+        margin-right:30px;
+    }
+}
+
+@media screen and (max-width:340px){
+    header ul li{
+        font-size:14px;
+    }
 }
 

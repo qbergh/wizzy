@@ -42,7 +42,7 @@ aside {
     grid-column-start:1;
     position:fixed;
     height:100vh;
-    z-index:2;
+    z-index:11;
 }
 
 main {
@@ -269,6 +269,25 @@ header ul li {
 
 .homeSearchBar li:nth-of-type(2){
     width:4%;
+}
+
+.newAfl{
+    color:white;
+    background-color:inherit;
+    font-weight:200;
+    padding:10px;
+    //border-radius:25px;
+    position:absolute;
+    font-size:12px;
+    top:-10px;
+    left:-10px;
+    box-shadow: 0 2px 9px 0 rgba(157,157,157,0.5);
+    border-radius: 25px;
+}
+
+.newAfl p{
+    position:relative;
+    left:-1px;
 }
 
 /* ----------------------------------
@@ -837,15 +856,12 @@ FAQ
     padding:15px 30px;
 }
 
-.FAQ .thirds-subgrid{
-    margin-top:100px;
-    justify-items:center;
-}
-
 .thirds-subgrid{
     display:grid;
     grid-template-columns:1/3 1/3 1/3;
     grid-template-rows:100%;
+    margin-top:100px;
+    justify-items:center;
 }
 .first-third{
     grid-column-start:1;
@@ -1051,10 +1067,6 @@ span[data-filter]{
 Instellingen
 
 ----------------------------------- */
-.meldingen{
-    width:280px;
-    margin-bottom:40px;
-}
 
 .meldingen .notifEpisode{
     margin-bottom:15px;
@@ -1090,11 +1102,6 @@ Instellingen
 .meldingen .showAll p{
     text-align: center;
     padding-top:7.5px;
-}
-
-.databeheer{
-    width:280px;
-    margin-bottom:40px;
 }
 
 .databeheer .dataPie{
@@ -1177,20 +1184,8 @@ Instellingen
     padding-top:7.5px;
 }
 
-.appInfo{
-    clear:both;
-}
-
-.appInfo .legal{
-    float:left;
-}
-
 .appInfo .legal li a:hover{
     color:#979797;
-}
-
-.appInfo .version{
-    float:right;
 }
 
 .appInfo ul li{
@@ -1200,93 +1195,55 @@ Instellingen
 
 .appInfo .version li p:first-of-type{
     float:left;
-    padding-bottom:15px;
+    padding-bottom:10px;
 }
 
 .appInfo .version li p:nth-of-type(2){
     float:right;
 }
 
-/*
 .instellingen-grid{
     display:grid;
-    grid-template-columns: 280px 280px;
-    grid-template-rows:315px auto;
-    justify-content: center;
-    grid-column-gap: auto;
-    grid-row-gap:80px;
+    grid-template-columns: 1fr 280px 1fr 1fr 280px 1fr;
+    grid-template-rows:50% 50%;
+    grid-column-gap: 40px;
 }
 
 .meldingen{
-    grid-column-start:1;
-    grid-column-end:1;
+    grid-column-start:2;
     grid-row-start:1;
-    grid-row-end:1;
-    background-color:firebrick;
+    width:100%;
+    display:grid;
+    justify-content:center;
+    margin-bottom:40px;
 }
 
 .databeheer{
-    grid-column-start: 2;
-    grid-column-end:2;
+    display:grid;
+    justify-content: center;
+    grid-column-start:5;
     grid-row-start:1;
-    grid-row-end:1;
-    background-color:aquamarine;
+    width:100%;
+    margin-bottom:40px;
 }
 
 .appInfo{
-    grid-column-start:1;
-    grid-column-end:2;
+    grid-column-start:2;
+    grid-column-end:6;
     grid-row-start:2;
-    grid-row-end:2;
-    background-color:fuchsia;
-}
-*/
-
-.instellingen-grid{
     display:grid;
-    //background-color:silver;
-    grid-template-rows:330px 200px;
-    grid-row-gap:40px;
-    justify-content:center;
+    grid-template-columns: 1fr 1fr;
 }
 
-.half-grid{
-    display:grid;
+.appInfo .legal{
     grid-column-start:1;
-    grid-template-rows:50% 50%;
-    //background-color:dodgerblue;
-    justify-content: center;
-    grid-column-gap: 40px;
-
 }
 
-.meldingen{
-    grid-column-start:1;
-    grid-column-end:1;
-    grid-row-start:1;
-    grid-row-end:1;
-   // background-color:firebrick;
-    height:330px;
-}
-
-.databeheer{
-    grid-column-start: 2;
-    grid-column-end:2;
-    grid-row-start:1;
-    grid-row-end:1;
-    //background-color:aquamarine;
-    height:330px;
+.appInfo .version{
+    grid-column-start:2;
 }
 
 .percentage{display:none;}
-
-.appInfo{
-    grid-column-start:1;
-    grid-column-end:2;
-    grid-row-start:2;
-    grid-row-end:2;
-    //background-color:fuchsia;
-}*/
 /* ----------------------------------
 
 Serie
@@ -1685,4 +1642,25 @@ Serie
 .step4 .boxContent{
     display:grid;
     margin-top:15%;
+}
+
+/* mobile menu */
+
+.mobileMenu{
+    color:#F0F0F0;
+    z-index:10;
+    margin-top:500px;
+    grid-column-start: 2;
+    font-size:20px;
+    justify-self:center;
+    align-self:center;
+}
+
+.mobileMenu i{
+    width:10px;
+    margin-right:40px;
+}
+
+.mobileMenu li{
+    margin-bottom:30px;
 }

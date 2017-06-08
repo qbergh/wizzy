@@ -1,58 +1,32 @@
-/*function homeHandler(){
-    $('.gallery').removeClass('2_grid');
-    $('.gallery').removeClass('3_grid');
-    $('.gallery').removeClass('4_grid');
+function mobileMenu(){
+    $('main').toggleClass('hidden');
+    $('header').toggleClass('hidden');
+    $('footer').toggleClass('hidden');
+    $('aside .profielfoto').toggleClass('hidden');  
+    $('aside .hamburger').toggleClass('fa-times')
+    $('aside .hamburger').toggleClass('fa-bars');   
     
-    if($(window).width() > 1400) {
-            $('.gallery').addClass('4_grid');
-        } else if(($(window).width() < 1400) && ($(window).width() > 760)) {
-            $('.gallery').addClass('3_grid');
-        } else if(($(window).width() < 760)){
-            $('.gallery').addClass('2_grid');
-        } else{
-            $('.gallery').addClass('3_grid'); 
-        }
-    
-    var galClass = $('.gallery').attr('class');
+    if($('aside .hamburger').hasClass('fa-times')){
+        $('.grid_container').css('background-color',"#979797");
+        $('aside').css('background-color',"#979797");
+        $('aside .hamburger').css('color','#F0F0F0');
         
-    var itemCount;
-    var intPlus;
-    
-    switch(galClass){
-        case 'gallery 2_grid':      intPlus = 2;
-                                    $('.gallery_item').css('width','45%');
-                                    $('.gallery_item').css('margin-width','5%');
-                                    break;
-            
-        case 'gallery 3_grid':      intPlus = 3;
-                                    $('.gallery_item').css('width','30.333333%');
-                                    $('.gallery_item').css('margin-width','3%');
-                                    break;
-            
-        case 'gallery 4_grid':      intPlus = 4;
-                                    $('.gallery_item').css('width','23%');
-                                    $('.gallery_item').css('margin-width','2%');
-                                    break;
-                   };
-    
-    // remove margin-right on 2nd / 3rd / 4th item
-    var checkTypeFilter = $('.homeNormalBar .selected').attr('data-filter');
-    
-    switch(checkTypeFilter){
-        case '.series':     
-                                    itemCount = $('.gallery_item.series').length;
-                                    break;
-        case '.films':              
-                                    itemCount = $('.gallery_item.films').length;
-                                    break;
-                          }
-    
-    for(var i = intPlus; i <= itemCount; i = i + intPlus ){
-        $('.gallery_item:nth-of-type('+i+')').css('margin-right','0px');
-        $('.gallery_item:nth-of-type('+i+')').css('background-color','pink');
+        var menu = '<div class="mobileMenu"><ul><li><a href="account.html"><i class="fa fa-user"></i>Mijn account</a></li><li><a href="tvkeuze.html"><i class="fa fa-television"></i>Ontspannen kijken</a></li><li><a href="faq.html"><i class="fa fa-question"></i>Hulpcentrum</a></li><li><a href="instellingen.html"><i class="fa fa-wrench"></i>Instellingen</a></li></ul><div>';
+        
+        $(".grid_container").append(menu);
+        
+    } else if($('aside .hamburger').hasClass('fa-bars')){
+        $('body').css('background-color',"#F0F0F0");
+        $('aside').css('background-color',"#E7E7E7");
+        $('aside .hamburger').css('color','#AFADAF');
+        
+        $('.mobileMenu').remove();
     }
-}*/
-
+    
+    
+    
+    
+}
 
 function resizeSeries(){
     /* Resizing episodes div */
@@ -174,12 +148,16 @@ function main() {
     $('.suggesties .navUL li:nth-of-type(2)').on('click',function(){
         $('.suggesties').toggleClass('hidden');
         $('.aanpassenSuggesties').toggleClass('hidden');
-    })
+    });
     
     $('.aanpassenSuggesties .navUL li:nth-of-type(1)').on('click',function(){
         $('.suggesties').toggleClass('hidden');
         $('.aanpassenSuggesties').toggleClass('hidden');
-    })
+    });
+    
+    /* toggle mobile menu */
+    
+    $('.hamburger').on('click',mobileMenu);
     
     
 }
