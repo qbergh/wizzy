@@ -1,4 +1,4 @@
-@media screen and (min-width:910px) and (min-height:745px){
+@media screen and (min-width:910px) and (min-height:800px){
     .instellingen{
         display:grid;
         grid-template-columns: 80vw;
@@ -41,7 +41,45 @@
     }
 }
 
-
+@media screen and (max-width:1100px){
+    suggesties,.aanpassenSuggesties{margin-top:120px;}
+    .suggesties .suggestionBox{
+        height:auto;
+        display:grid;
+        grid-template-columns:auto;
+        grid-template-rows:200px auto;
+        margin-bottom:40px;
+    }
+    
+    .suggestionPicture{
+        grid-column-start: 1;
+        grid-row-start: 1;
+        border-right:none;
+        border-bottom: 2px solid #979797;
+        height:200px;
+    }
+    
+    .suggestionPicture img{
+        position:initial;
+        width:100%;
+        height:auto;
+    }
+    
+    .suggestionInfo{
+        grid-column-start:1;
+        grid-row-start:2;
+    }
+    
+    .suggestionBox .suggestionInfo p{
+        font-size:11px;
+        line-height:16px !important;
+    }
+    
+    .decideSuggestion{
+        height:40px;
+        margin-bottom:40px;
+    }
+}
 @media screen and (max-width:1005px){
     .instellingen-grid{
         grid-template-columns: 1fr 280px 1fr 280px 1fr;
@@ -130,7 +168,7 @@
         display:none;   
     }
     
-    /* SUGGESTIES */
+    /* SUGGESTIES *//*
     
     .suggesties,.aanpassenSuggesties{margin-top:120px;}
     .suggesties .suggestionBox{
@@ -169,7 +207,7 @@
         height:40px;
         margin-bottom:40px;
     }
-    
+    */
     /* INSTELLINGEN */
     
     .half-grid{

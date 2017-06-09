@@ -239,7 +239,7 @@ header ul li {
 }
 
 .searchExtended{
-    margin-top:100px;
+    margin-top:120px;
     color:#979797;
     z-index:99;
 }
@@ -629,6 +629,7 @@ suggesties
 .aanpassenSuggesties .suggestionBox{
     outline:2px solid #979797;
     margin-top:30px;
+    margin-bottom:40px;
     height:540px;
 }
 
@@ -777,7 +778,7 @@ suggesties
     font-size:14px;
 }
 
-.aanpassenSuggesties input#searchSuggestions::-webkit-input-placeholder, .aanpassenSuggesties input#searchSuggestions::-moz-placeholder, .aanpassenSuggesties input#searchSuggestions:-ms-input-placeholder, .aanpassenSuggesties input#searchSuggestions:-moz-placeholder {
+.aanpassenSuggesties input.searchSuggestions::-webkit-input-placeholder, .aanpassenSuggesties input.searchSuggestions::-moz-placeholder, .aanpassenSuggesties input.searchSuggestions:-ms-input-placeholder, .aanpassenSuggesties input.searchSuggestions:-moz-placeholder {
     color:#AFADAF;
     font-family:Gilroy;
     font-size:14px;
@@ -1649,11 +1650,10 @@ Serie
 .mobileMenu{
     color:#F0F0F0;
     z-index:10;
-    margin-top:500px;
+    margin-top:200px;
     grid-column-start: 2;
     font-size:20px;
     justify-self:center;
-    align-self:center;
 }
 
 .mobileMenu i{
@@ -1663,4 +1663,12 @@ Serie
 
 .mobileMenu li{
     margin-bottom:30px;
+}
+
+input[type="search" i]:focus {
+    outline:none;
+}
+
+.homeSearchBar i{
+    cursor:pointer;
 }

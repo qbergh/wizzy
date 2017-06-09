@@ -38,15 +38,47 @@
                     <li data-filter=".films"><a href="#">Films</a></li>
                 </ul>
                 <ul class="homeSearchBar hidden">
-                    <li><i class="fa fa-search"></i></li>
-                    <li><input type="text" name="search" placeholder="Naar wat zoekt u?"/></li>
-                    <li><i class="fa fa-cogs" aria-hidden="true"></i></li>
-                </ul>
-                <ul class="normalBar hidden">
-                    <li><a href="index.html"><i class="fa fa-times"></i></a></li>
-                    <li>Mijn account</li>
+                    <li><i class="fa fa-times"></i></li>
+                    <li><input class="homeSearchInput" type="search" name="search" placeholder="Naar wat zoekt u?"/></li>
+                    <li><i class="fa fa-cogs extendSearch" aria-hidden="true"></i></li>
                 </ul>
             </header>
+            
+            <section class="searchExtended hidden">
+                <article>
+                <form >
+                    <div><input type="checkbox"><label>Mijn favorieten</label></div>
+                    <div><input type="checkbox"><label>Nieuwe afleveringen</label></div>
+                </form>
+                </article>
+                <article>
+                <form >
+                    <h2>Genres</h2>
+                    <div><input type="checkbox"><label>Populair</label></div>
+                    <div><input type="checkbox"><label>Actie</label></div>
+                    <div><input type="checkbox"><label>Avontuur</label></div>
+                    <div><input type="checkbox"><label>Drama</label></div>
+                    <div><input type="checkbox"><label>Docu</label></div>
+                    <div><input type="checkbox"><label>Familie</label></div>
+                    <div><input type="checkbox"><label>Horror</label></div>
+                    <div><input type="checkbox"><label>Komedie</label></div>
+                    <div><input type="checkbox"><label>Romantiek</label></div>
+                    <div><input type="checkbox"><label>Thriller</label></div>
+                    <div><input type="checkbox"><label>Misdaad</label></div>
+                    <div><input type="checkbox"><label>Vlaams</label></div>
+                </form>
+                </article>
+                <article>
+                <form >
+                    <h2>Streaming</h2>
+                    <div><input type="checkbox"><label>Netflix</label></div>
+                    <div><input type="checkbox"><label>HBO</label></div>
+                    <div><input type="checkbox"><label>Play More</label></div>
+                    <div><input type="checkbox"><label>Amazon Prime</label></div>
+                    <div><input type="checkbox"><label>Hulu</label></div>
+                </form>
+                </article>
+            </section>
             <section class="gallery">
                 
             </section>
@@ -58,6 +90,7 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
     <script src="../js/script.js"></script>
     
     <script>       
@@ -104,12 +137,12 @@
                     case 'serie':
                                     galleryItem += "serie.html' data-serie";
                                     galleryItem += "="+name+"><div class='img_container'>";
-                                    galleryItem += "<img src='../img/series/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p><i";
+                                    galleryItem += "<img src='../img/series/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p class='name'><i";
                                     break;
                     case 'film':
                                     galleryItem += "film.html' data-film";
                                     galleryItem += "="+name+"><div class='img_container'>";
-                                    galleryItem += "<img src='../img/films/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p><i";
+                                    galleryItem += "<img src='../img/films/"+image+"' alt='"+name+"'></div><div class='gallery_item_info'><p class='name'><i";
                                     break;  
                            };
                 
@@ -144,37 +177,80 @@
                 $('.gallery').append(galleryItem);
             }); 
                 
+                /* ISOTOPE */
+                var qsRegex;
+                var filterValue = ".series";
+                
                 var $grid = $('.gallery').isotope({
                       // main isotope options
-                    percentPosition: true,
-                    fitWidth:true,
-                      itemSelector: '.gallery_item',
-                      // set layoutMode
-                      //layoutMode: 'masonry'
-                    layoutMode:'fitRows'
-                    });
-                
-                
-                
-                $grid.isotope({ filter: '.series' });
-             
+                    //percentPosition: true,
+                    itemSelector: '.gallery_item',
+                    layoutMode: 'masonry',
+                    filter: function() {
+                        var $this = $(this);
+                        var searchResult = qsRegex ? $this.text().match( qsRegex ) : true;
+                        var buttonResult = filterValue ? $this.is( filterValue ) : true;
+                        return searchResult && buttonResult;
+                  }
+                });
+                             
                 $('[data-filter]').on( 'click', function() {
                     $('[data-filter].selected').removeClass('selected');
                     $(this).addClass('selected');
-                    var filterValue = $(this).attr('data-filter');
+                    filterValue = $(this).attr('data-filter');
                     console.log(filterValue);
-                    $grid.isotope({ filter: filterValue });
+                    $grid.isotope();
                 });
                 
+                /* ISOTOPE FILTER DOOR SEARCH */
+                var $quicksearch = $('.homeSearchInput').keyup( debounce( function() {
+                  qsRegex = new RegExp( $quicksearch.val(), 'gi' );
+                  $grid.isotope();
+                }, 200 ) );
+                
+                // filtering niet elke seconde laten gebeuren
+                function debounce( fn, threshold ) {
+                      var timeout;
+                      return function debounced() {
+                        if ( timeout ) {
+                          clearTimeout( timeout );
+                        }
+                        function delayed() {
+                          fn();
+                          timeout = null;
+                        }
+                        timeout = setTimeout( delayed, threshold || 100 );
+                      }
+                    }
+                
+                /* DATA MEEGEVEN VOOR DETAIL PAGINA*/
                 $('.gallery_item a').on('click',function(){
                     var serieNaam = $(this).data('serie');
                     var filmNaam = $(this).data('film');
                     localStorage.setItem('serieNaam',serieNaam);
                     localStorage.setItem('filmNaam',filmNaam);
             });
-                //homeHandler();
-
-                 
+            
+                /* Search functie */
+                
+                $('.homeNormalBar .fa.fa-search').on('click',function(){
+                    $('.homeNormalBar').addClass('hidden');
+                    $('.homeSearchBar').removeClass('hidden');
+                });
+                
+                $('.homeSearchBar .fa.fa-times').on('click',function(){
+                    $('.homeNormalBar').removeClass('hidden');
+                    $('.homeSearchBar').addClass('hidden');
+                    $('.searchExtended').addClass('hidden');
+                    $('.gallery').removeClass('hidden');
+                    qsRegex = "";
+                    $grid.isotope();
+                });
+                
+                $('.extendSearch').on('click',function(){
+                    $('.searchExtended').removeClass('hidden');
+                    $('.gallery').addClass('hidden');
+                })
                 
             }              
         });

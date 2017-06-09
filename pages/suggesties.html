@@ -80,26 +80,26 @@
                     <li><a href="#"><i class="fa fa-search"></i></a></li>
                 </ul>
                 <div class="searchBar hidden">
-                    <input type="text" id="searchSuggestions" placeholder="Zoek een programma">
-                    <a href=""><i class="fa fa-times"></i></a>
+                    <input type="text" class="searchSuggestions" id='jetsSearch' placeholder="Zoek een programma">
+                    <a href="#"><i class="fa fa-times"></i></a>
                 </div>
                  <div class="suggestionBox">
-                    <ul class="preferChanges">
-                        <li>The Big Bang Theory <input type="checkbox"></li>
+                    <ul class="preferChanges" id="jetsContent">
+                        <li>The Big Bang Theory <input type="checkbox" checked></li>
                         <li>Jani Gaat ... <input type="checkbox"></li>
                         <li>Thuis <input type="checkbox"></li>
                         <li>Het Journaal<input type="checkbox"></li>
-                        <li>Iedereen Beroemd<input type="checkbox"></li>
-                        <li>Gert Late Night<input type="checkbox"></li>
-                        <li>Grimm<input type="checkbox"></li>
+                        <li>Iedereen Beroemd<input type="checkbox"> checked</li>
+                        <li>Gert Late Night<input type="checkbox" checked></li>
+                        <li>Grimm<input type="checkbox" checked></li>
                         <li>De Buurtpolitie<input type="checkbox"></li>
                         <li>Tegen De Sterren Op<input type="checkbox"></li>
                         <li>Liefde Voor Muziek<input type="checkbox"></li>
-                        <li>Komen Eten<input type="checkbox"></li>
-                        <li>Supergirl<input type="checkbox"></li>
+                        <li>Komen Eten<input type="checkbox" checked></li>
+                        <li>Supergirl<input type="checkbox" checked></li>
                         <li>Batman: the lego series<input type="checkbox"></li>
-                        <li>Het Weer<input type="checkbox"></li>
-                        <li>F.C. De Kampioenen<input type="checkbox"></li>
+                        <li>Het Weer<input type="checkbox" checked></li>
+                        <li>F.C. De Kampioenen<input type="checkbox" checked></li>
                      </ul>
                 </div>
         
@@ -112,6 +112,29 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/jets.min.js"></script>
     <script src="../js/script.js"></script>
+    
+    <script>
+        
+    $('.aanpassenSuggesties .fa.fa-search').on('click',function(){
+        $('.searchBar').removeClass('hidden');
+        $('.aanpassenSuggesties .navUL').addClass('hidden');
+    })
+        
+    $('.aanpassenSuggesties .fa.fa-times').on('click',function(){
+        console.log('wtf');
+        $('.aanpassenSuggesties .navUL').removeClass('hidden');
+        $('.aanpassenSuggesties .searchBar').addClass('hidden');
+        
+    });
+        
+     var jets = new Jets({
+          searchTag: '#jetsSearch',
+          contentTag: '#jetsContent'
+        });
+    
+    </script>
+    
 </body>
 </html>

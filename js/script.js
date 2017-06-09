@@ -11,21 +11,17 @@ function mobileMenu(){
         $('aside').css('background-color',"#979797");
         $('aside .hamburger').css('color','#F0F0F0');
         
-        var menu = '<div class="mobileMenu"><ul><li><a href="account.html"><i class="fa fa-user"></i>Mijn account</a></li><li><a href="tvkeuze.html"><i class="fa fa-television"></i>Ontspannen kijken</a></li><li><a href="faq.html"><i class="fa fa-question"></i>Hulpcentrum</a></li><li><a href="instellingen.html"><i class="fa fa-wrench"></i>Instellingen</a></li></ul><div>';
+        var menu = '<div class="mobileMenu"><ul><li><a href="home.html"><i class="fa fa-home"></i>Home</a></li><li><a href="account.html"><i class="fa fa-user"></i>Mijn account</a></li><li><a href="tvkeuze.html"><i class="fa fa-television"></i>Ontspannen kijken</a></li><li><a href="faq.html"><i class="fa fa-question"></i>Hulpcentrum</a></li><li><a href="instellingen.html"><i class="fa fa-wrench"></i>Instellingen</a></li><li><a href="../index.html"><i class="fa fa-sign-out"></i>Afmelden</a></li></ul><div>';
         
         $(".grid_container").append(menu);
         
     } else if($('aside .hamburger').hasClass('fa-bars')){
-        $('body').css('background-color',"#F0F0F0");
+        $('.grid_container').css('background-color',"#F0F0F0");
         $('aside').css('background-color',"#E7E7E7");
         $('aside .hamburger').css('color','#AFADAF');
         
         $('.mobileMenu').remove();
-    }
-    
-    
-    
-    
+    }  
 }
 
 function resizeSeries(){
@@ -128,19 +124,34 @@ function main() {
     };
     
     /* change profile */
-    localStorage.setItem('currentProfile','url(../img/profielfoto.jpg)');
-    var currentProfile = localStorage.getItem('currentProfile');
     
     $('.secondProfile').on('click',changeProfile);
     
     $('.thirdProfile').on('click',changeProfile);
     
     function changeProfile(){
-        var newProfile = $(this).css('background-image');
-        $(this).css('background-image',currentProfile);
-        $('.currentProfile').css('background-image',newProfile);
-        $('.profielfoto').css('background-image',newProfile);
+        var thisProfile = $(this).css('background-image');
+        var centerProfile = $('.currentProfile').css('background-image');
+        $(this).css('background-image',centerProfile);
+        $('.currentProfile').css('background-image',thisProfile);
+        $('.profielfoto').css('background-image',thisProfile);
+        localStorage.setItem('profielfoto',thisProfile);
+    }
+    
+    var currentProfile = localStorage.getItem('profielfoto');
+    $('.profielfoto').css('background-image',currentProfile);
+    
+    $('.currentProfile').css('background-image',currentProfile);
+    console.log(currentProfile);
+    
+    if($('.currentProfile').css('background-image') === currentProfile && currentProfile === 'url("https://qbergh.github.io/wizzy/img/profielfoto2.jpeg")'){
+        $('.secondProfile').css('background-image','url("../img/profielfoto.jpg")');
+        console.log('oh darn');
+    } else if($('.currentProfile').css('background-image') === 'url("https://qbergh.github.io/wizzy/img/profielfoto3.jpeg")'){
         
+        $('.thirdProfile').css('background-image','url("../img/profielfoto.jpg")');
+    } else{
+        console.log(currentProfile);
     }
     
     /* tussentijdse oplossing */
