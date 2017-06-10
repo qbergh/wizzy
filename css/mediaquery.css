@@ -14,11 +14,11 @@
     }
     
     .keuzePaneel {
-        margin-top:30vh;
+        margin-top:20vh;
     }
     
     .keuzePaneel p,.suggestionBox .suggestionInfo p{
-        font-size:16px;
+        font-size:14px;
     }
     
     .FAQ h2{
@@ -430,6 +430,10 @@
     .watchChoice:nth-of-type(1),.watchChoice:nth-of-type(4){
         margin-left:0;
     }
+    
+    .popUpBox,.meldingAflevering .footer{
+        width:300px;
+    }
         
 }
 
@@ -644,6 +648,14 @@
     
     .planTV{
         margin-bottom: 40px;
+    }
+    
+    .popUp{
+        margin: 70px 0 0 0;
+    }
+    
+    .meldingAflevering .footer{
+        bottom:311px;
     }
     
 }

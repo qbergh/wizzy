@@ -30,6 +30,109 @@
             </div>
         </aside>
         
+        
+        <section class="popUp hidden">
+               
+            <div class="popUpBox hidden">
+                    <h4>Melding bij nieuwe aflevering</h4>
+                    <div class="meldingAflevering">
+                    <div class="inputField">
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="The Big Bang Theory" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="The Walking Dead" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Gert Late Night" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Mijn Pop-Up Restaurant" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Zie Mij Graag" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Perfect 2.0" class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Jani Gaat..." class="inlogEmail" disabled >
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-times"></i>
+                            <input type="password" placeholder="Komen Eten" class="inlogEmail" disabled >
+                        </div>  
+                        
+                        </div>
+                        <div class="footer"></div>
+                    </div>
+                    <p>Annuleren</p>
+                    <p>Opslaan</p>
+                    
+                </div>
+            
+            <div class="popUpBox hidden">
+                    <h4>Verwijder oude opnames</h4>
+                    <div class="verwijderOpnames">
+                    <div class="inputField">
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Grimm" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="The Walking Dead" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Gert Late Night" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Mijn Pop-Up Restaurant" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Zie Mij Graag" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Perfect 2.0" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Jani Gaat..." class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>
+                        <div class="input_item">
+                            <i class="fa fa-check-square-o"></i>
+                            <input type="text" placeholder="Komen Eten" class="inlogEmail" disabled >
+                            <i class="fa fa-link"></i>
+                        </div>  
+                        
+                        </div>
+                        <div class="footer"></div>
+                    </div>
+                    <p>Annuleren</p>
+                    <p>Verwijder</p>
+                    
+                </div>
+            </section>
+        
+        
         <main>
             
             
@@ -40,6 +143,7 @@
                     <li><a href="home.html"><i class="fa fa-home"></i></a></li>
                 </ul>
             </header>
+            
             <section class="instellingen">
                 <div class="instellingen-grid">
                 <div class="meldingen">
@@ -51,9 +155,14 @@
                         <li><a href="#"><i class="fa fa-times"></i></a> <p>The Big Bang Theory</p></li>
                         <li><a href="#"><i class="fa fa-times"></i></a> <p>The Walking Dead</p></li>
                         <li><a href="#"><i class="fa fa-times"></i></a> <p>Gert Late Night</p></li>
+                        <li class="hidden"><a href="#"><i class="fa fa-times"></i></a> <p>Mijn Pop-Up Restaurant</p></li>
+                        <li class="hidden"><a href="#"><i class="fa fa-times"></i></a> <p>Zie Mij Graag</p></li>
+                        <li class="hidden"><a href="#"><i class="fa fa-times"></i></a> <p>Perfect 2.0</p></li>
+                        <li class="hidden"><a href="#"><i class="fa fa-times"></i></a> <p>Jani Gaat...</p></li>
+                        <li class="hidden"><a href="#"><i class="fa fa-times"></i></a> <p>Komen Eten</p></li>
                     </ul>
                         <div class="showAll button">
-                            <p><a href="#">Toon alle</a></p>
+                            <p><a href="#" data-popup="meldingAflevering">Toon alle</a></p>
                         </div>
                     <div class="notifSuggestion">
                         <label>Melding bij nieuwe suggesties</label><input type="checkbox">
@@ -74,7 +183,7 @@
                     </ul>
                     <a href="#">
                         <div class="deleteOld button">
-                            <p><a href="#">Verwijder oude opnames</a></p>
+                            <p><a href="#" data-popup="verwijderOpnames">Verwijder oude opnames</a></p>
                         </div></a>
                     </div>
                 <div class="appInfo">
