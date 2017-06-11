@@ -163,6 +163,8 @@ function popUp(){
         $('body').css('overflow','auto');
         $('.grid_container').css('overflow','auto');
         $('main').removeClass('hidden');
+        var headerWidth = $("main").width();
+    $("header").width(headerWidth);
     });
     
     /* payment options - tussen opties kiezen */
