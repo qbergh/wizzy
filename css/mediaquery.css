@@ -651,9 +651,10 @@
     }
     
     .popUp{
-        margin: 0 0 0 40px;
+        margin: 70px 0 0 0;
         background-color:#F0F0F0;
         background:#F0F0F0;
+        display:block;
     }
     
     .popUpBox{
