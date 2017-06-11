@@ -1,11 +1,13 @@
 function mobileMenu(){
     /* remove Pop up if active*/
+    if($('.grid_container').has('.popUp').length > 0){
         $('.popUp').remove(); 
         $('body').css('overflow','auto');
         $('.grid_container').css('overflow','auto');
         $('main').removeClass('hidden');
         var headerWidth = $("main").width();
         $("header").width(headerWidth);
+    }
     
     /* do everything for mobile menu */
     $('main').toggleClass('hidden');
@@ -101,7 +103,16 @@ function resizeSeries(){
 
 function popUp(){
     var popup = $(this).data('popup'),
-        popupContent = "<section class='popUp'><div class='popUpBox'>";
+        popupContent,
+        serieVerwijderenImg;
+    
+    if(popup =='serieVerwijderen'){
+        popupContent = '<section class="popUp">';
+        serieVerwijderenImg = $(this).closest('main').find('.aflList div').css('background-image');
+        
+    } else {
+        popupContent= "<section class='popUp'><div class='popUpBox'>";
+    }
     
     if($(window).width() > 540){
         $('body').css('overflow','hidden');
@@ -133,12 +144,25 @@ function popUp(){
         case 'verwijderOpnames': popupContent += ' <h4>Verwijder oude opnames</h4><div class="verwijderOpnames"><div class="inputField"><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Grimm" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="The Walking Dead" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Gert Late Night" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Mijn Pop-Up Restaurant" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Zie Mij Graag" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Perfect 2.0" class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Jani Gaat..." class="inlogEmail" disabled ><i class="fa fa-link"></i></div><div class="input_item"><i class="fa fa-check-square-o"></i><input type="text" placeholder="Komen Eten" class="inlogEmail" disabled ><i class="fa fa-link"></i></div></div><div class="footer"></div></div>'
                     
                                 break;
+            
+        case 'serieVerwijderen': popupContent += '<div class="popUpBox serieVerwijderen"><div class="popHead"><h4>Serie verwijderen</h4><h4>Alles selecteren <i class="fa fa-square-o"></i></h4></div><div class="deleteGallery"><div class="delete_item"><i class="fa fa-check hidden"></i><p>9 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>8 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>7 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>6 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>5 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>4 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>3 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>2 MEI</p></div><div class="delete_item"><i class="fa fa-check hidden"></i><p>1 MEI</p></div><div class="footer"></div></div><div class="popbutton"><p>Annuleren</p><p>Verwijder</p></div></div></section>';
+                                break;
+            
+        case 'serieInfo':       popupContent += '<h4>Seizoen 1</h4><p class="popUpText">After leading a mission to eliminate terrorist leader Sheikh Ibrahim bin-Khalid, Eric Carter, an ex–Army Ranger who returns to the U.S. and finds out that he and his squad mates are being hunted down and killed because one of his team unwittingly stole a flash drive containing a list of US-based terror cells and the codes to activate them for future attacks.</p>'  
+                                break;
+            
+        case 'verwijderFilm':   popupContent+= '<h4>Wilt u deze film verwijderen?</h4>';
+                                break;
                 }
     
 
         /* POP UP op pagina zetten */
-        if(popup == 'verwijderOpnames'){
+        if(popup == 'verwijderOpnames' || popup == 'verwijderFilm'){
             popupContent+= "<p>Annuleren</p><p>Verwijderen</p></div>/<section>";
+        } else if(popup == 'serieVerwijderen'){
+            console.log('popupContent reeds volledig!');
+        } else if(popup == 'serieInfo'){
+            popupContent+= "<p>Annuleren</p><p>Bekijken</p></div>/<section>";      
         } else {
             popupContent+= "<p>Annuleren</p><p>Opslaan</p></div>/<section>";
         }
@@ -163,6 +187,7 @@ function popUp(){
         $('.popUp').width(bodyWidth);
         $('.footer').width(bodyWidth);
         $('.popUpBox').width(bodyWidth);
+        $('.deleteGallery').width(bodyWidth);
     }
     
     
@@ -263,7 +288,47 @@ function popUp(){
             $('.meldingAflevering .inputField').append("<h6>Er zijn  geen series waarbij u meldingen ontvangt.</h6>");
         }
     });
-
+    
+    /* serieVerwijderen codeblok */
+    
+    if(popup == 'serieVerwijderen' || popup == "serieInfo"){
+        $('.grid_container').css('background','#F0F0F0');
+        $('.popbutton p').on('click',function(){
+            $('.grid_container').css('background','none');
+        });     
+    };
+    
+    $('.delete_item').on('click',function(){
+       $(this).find('i').toggleClass('hidden');
+        
+        if($('.delete_item i.hidden').length > 0){
+            $('.popHead i').removeClass('fa-check-square-o');
+            $('.popHead i').addClass('fa-square-o');
+        }
+    });
+    
+    $('.popHead i').on('click',function(){
+        if($(this).hasClass('fa-square-o')){
+            $('.delete_item i').removeClass('hidden');
+            
+        } else if($(this).hasClass('fa-check-square-o')){
+            $('.delete_item i').addClass('hidden');
+        }
+        
+        $(this).toggleClass('fa-square-o');
+        $(this).toggleClass('fa-check-square-o');
+    });
+    
+    $('.delete_item').css('background-image',serieVerwijderenImg);
+    
+    /* footer deletegalery bij scroll beneden laten*/
+    $('.deleteGallery').on('scroll', function(){
+      $('.deleteGallery .footer').css('bottom', '-5' - $(this).scrollTop());
+    });
+    
+    /* Info insteken in pop up - synopsis zoeken en erin zetten */
+    var infoSerie = $(this).closest('main').find('.serieSynopsis').text();
+    $('.popUpText').html(infoSerie);
 }
 
 function main() {
@@ -333,6 +398,7 @@ function main() {
     /* POP UP */
     
     $('[data-popup]').on('click',popUp);
+    
     var notifications = 0;
     $('.latestNotifications .fa.fa-times').on('click',function(){
         $('.latestNotifications li.hidden:first').removeClass('hidden');

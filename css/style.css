@@ -1433,10 +1433,20 @@ Serie
 .aflList{
     display:grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: dense;
+    grid-template-rows:repeat(8,1fr);
+    //grid-auto-rows: dense;
     grid-gap:40px;
     height:80vh;
     overflow:scroll;
+}
+
+.seenItem::before{
+  background-color: rgba(0, 0, 0, 0.37);
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  width: 100%;
 }
 
 .serieInfo{
@@ -1784,6 +1794,20 @@ input[type="search" i]:focus {
     color:#F0F0F0;
 }
 
+.popUpText{
+    float:none !important; 
+    background:#F0F0F0 !important;
+    width:100% !important;
+    margin-bottom:40px;
+    text-align:justify!important;
+    cursor:default !important;
+    line-height: 24px;
+}
+
+.popUpText:hover{
+    color:#AFADAF !important;
+}
+
 .popUpBox .paymentOptions,.popUpBox .streamingOptions{
     margin-bottom:40px;
     display:grid;
@@ -1908,3 +1932,83 @@ input[type="search" i]:focus {
     grid-template-columns:10% 80% 5%;
     grid-gap:0;
 }
+
+.serieVerwijderen{
+    width:800px;
+}
+
+.popHead h4:nth-of-type(1){
+    float:left;
+    margin-left:30px;
+}
+.popHead h4:nth-of-type(2){
+    float:right;
+    margin-right:40px;
+}
+
+.deleteGallery{
+    width:100%;
+    max-height:350px;
+    position:relative;
+     overflow:auto;
+    margin-bottom:40px;
+}
+
+.delete_item{
+    display:inline-block;
+    margin: 20px 30px;
+    width:25%;
+    height:110px;
+    background-image:url('../img/series/24legacy.jpeg');
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position:relative;
+    color:white !important;
+    cursor:pointer;
+}
+
+.delete_item p{
+    background:none;
+    position:absolute;
+    width:auto;
+    bottom:0;
+    padding-left:15px;
+    cursor:default
+}
+
+.delete_item p:hover{
+    background:none!important;
+    color:white!important;
+}
+
+.delete_item i{
+    font-size:34px;
+    position:absolute;
+    left:40%;
+    top:20%;
+}
+
+.popbutton p:nth-of-type(1){
+    margin-left:30px;
+    width:30%;
+}
+
+.popbutton p:nth-of-type(2){
+    margin-right:30px;
+    width:30%;
+}
+
+.deleteGallery .footer{
+    background-image: linear-gradient(0deg, #F0F0F0 2%, rgba(240,240,240,0.00) 97%);
+    height:25px;
+    position:absolute;
+    bottom:-5;
+    z-index:99;
+    width:800px;
+}
+
+
+
+
+

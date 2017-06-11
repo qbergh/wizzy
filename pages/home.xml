@@ -17,18 +17,43 @@
         <aflevering>
             <afbeelding>24legacy.jpeg</afbeelding>
             <datum>1 MEI</datum>
-            <info>Dit is de 1e aflevering</info>
+            <bekeken>nee</bekeken>
         </aflevering>
         <aflevering>
             <afbeelding>24legacy.jpeg</afbeelding>
             <datum>1 MEI</datum>
-            <info>Dit is de 2de aflevering</info>
+            <bekeken>nee</bekeken>
         </aflevering>
           <aflevering>
             <afbeelding>24legacy.jpeg</afbeelding>
             <datum>1 MEI</datum>
-            <info>Dit is de 3de aflevering</info>
+              <bekeken>nee</bekeken>
         </aflevering>
+        <aflevering>
+            <afbeelding>24legacy.jpeg</afbeelding>
+            <datum>1 MEI</datum>
+            <bekeken>nee</bekeken>
+        </aflevering>
+        <aflevering>
+            <afbeelding>24legacy.jpeg</afbeelding>
+            <datum>1 MEI</datum>
+            <bekeken>ja</bekeken>
+        </aflevering>
+          <aflevering>
+            <afbeelding>24legacy.jpeg</afbeelding>
+            <datum>1 MEI</datum>
+              <bekeken>ja</bekeken>
+        </aflevering>
+        <aflevering>
+            <afbeelding>24legacy.jpeg</afbeelding>
+            <datum>1 MEI</datum>
+            <bekeken>ja</bekeken>
+        </aflevering>
+        <aflevering>
+            <afbeelding>24legacy.jpeg</afbeelding>
+            <datum>1 MEI</datum>
+            <bekeken>ja</bekeken>
+        </aflevering> 
       </afleveringen>
   </item>
   <item>

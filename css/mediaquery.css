@@ -80,6 +80,42 @@
         margin-bottom:40px;
     }
 }
+
+@media screen and (max-width:1030px){
+    .serieVerwijderen{
+        width:300px;
+    }
+
+    .popHead h4{
+        font-size:13px;   
+    }
+
+    .deleteGallery{
+        width:300px;
+    }
+
+    .delete_item{
+        margin: 10px 24px;
+        width:33%;
+        height:110px;
+    }
+
+    .delete_item p:hover{
+        background:none!important;
+        color:white!important;
+    }
+    
+    .popbutton p:nth-of-type(1){
+        margin-left:0px;
+        width:45%;
+    }
+
+    .popbutton p:nth-of-type(2){
+        margin-right:0px;
+        width:45%;
+    }
+}
+
 @media screen and (max-width:1005px){
     .instellingen-grid{
         grid-template-columns: 1fr 280px 1fr 280px 1fr;
@@ -658,11 +694,37 @@
     }
     
     .popUpBox{
-        width:inherit;
-        background-color:none;
-        box-shadow:none;
-        border-radius:none;
-        justify-self:none;
+        width:inherit!important;
+        background-color:none!important;
+        box-shadow:none!important;
+        border-radius:none!important;
+        justify-self:none!important;
+    }
+    
+    .popHead h4{
+        font-size:18px;
+    }
+    
+    .popHead h4:nth-of-type(1){
+        margin-left:0;
+    }
+    
+    .popHead h4:nth-of-type(2){
+        margin-right:0;
+    }
+    
+    .delete_item{
+        margin: 10px 15px;
+        width:45%;
+        height:110px;
+    }
+    
+    .delete_item:nth-of-type(odd){
+        margin-left:0;
+    }
+    
+    .delete_item:nth-of-type(even){
+        margin-right:0;
     }
     
     .verwijderOpnames .input_item{

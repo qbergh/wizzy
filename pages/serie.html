@@ -30,12 +30,74 @@
             </div>
         </aside>
         
+        <section class="popUp hidden">
+               
+            <div class="popUpBox hidden">
+                    <h4>Seizoen 1 - Aflevering</h4>
+                    <p class="popUpText">After leading a mission to eliminate terrorist leader Sheikh Ibrahim bin-Khalid, Eric Carter, an ex–Army Ranger who returns to the U.S. and finds out that he and his squad mates are being hunted down and killed because one of his team unwittingly stole a flash drive containing a list of US-based terror cells and the codes to activate them for future attacks.</p>
+                    <p>Annuleren</p>
+                    <p>Bekijken</p> 
+                </div>
+            
+            <div class="popUpBox serieVerwijderen">
+                <div class="popHead">
+                    <h4>Serie verwijderen</h4>
+                    <h4>Alles selecteren <i class="fa fa-square-o"></i></h4>
+                </div>
+                    <div class="deleteGallery">
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                       <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        <div class="delete_item">
+                            <i class="fa fa-check"></i>
+                            <p>1 MEI</p>
+                        </div>
+                        
+                        
+                        <div class="footer"></div>
+                    </div>
+                    <div class="popbutton">
+                    <p>Annuleren</p>
+                    <p>Verwijder</p> 
+                </div>
+                </div>
+            </section>
+        
         <main>
             <header class="serieHeader">
                 <ul class="normalBar">
                     <li><a href="home.html"><i class="fa fa-arrow-left"></i></a></li>
                     <li class="serieNaam">Serienaam</li>
-                    <li><i class="fa fa-trash"></i></li>
+                    <li data-popup="serieVerwijderen"><i class="fa fa-trash"></i></li>
                     <li class="fav"><i class="fa fa-star-o"></i></li>
                 </ul>
             </header>
@@ -44,7 +106,7 @@
                     <h2><a href="#" data-page="aflList">Afleveringen</a></h2>
                     <h2 class="hidden"><a href="#" data-page="serieInfo">Informatie</a></h2>
                     <div class="aflList">
-                        <div>
+                     <!--  <div>
                             <p>
                             <i class="fa fa-play-circle"></i>
                             1 MEI
@@ -92,7 +154,7 @@
                             1 MEI
                             <i class="fa fa-info"></i>
                             </p>
-                        </div>
+                        </div>-->
                        
                     </div>
                </div>
@@ -157,7 +219,15 @@
                     var aflImg = $(this).find('afbeelding').text(),
                         aflDatum = $(this).find('datum').text(),
                         aflInfo = $(this).find('info').text(),
-                        aflDiv = "<div style='background-image:url(../img/series/"+aflImg+")'><p><i class='fa fa-play-circle'></i>"+aflDatum+"<i class='fa fa-info'></i></p></div>";
+                        bekeken = $(this).find('bekeken').text(),
+                        aflDiv = "<div style='background-image:url(../img/series/"+aflImg+")'";
+                    
+                        switch(bekeken){
+                            case 'nee': break;
+                            case 'ja': aflDiv += "class='seenItem'";
+                                      }
+                    
+                        aflDiv +="><p><i class='fa fa-play-circle'></i>"+aflDatum+"<i class='fa fa-info' data-popup='serieInfo'></i></p></div>";
                        
                     $('.aflList').append(aflDiv); 
                 });
@@ -179,7 +249,7 @@
                 
                 
                 resizeSeries();
-    
+                $('[data-popup]').on('click',popUp);
             }   
                
         });
