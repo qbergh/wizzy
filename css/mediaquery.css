@@ -665,7 +665,10 @@
         justify-self:none;
     }
     
-    
+    .verwijderOpnames .input_item{
+        grid-template-columns:10% 85%;
+        grid-gap:5%;
+    }
     
 }
 
