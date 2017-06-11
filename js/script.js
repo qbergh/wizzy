@@ -98,7 +98,7 @@ function popUp(){
         $('body').css('overflow','hidden');
         $('.grid_container').css('overflow','hidden');
     } else if($(window).width() < 540){
-        window.scrollTo(x-coord, y-coord);
+        window.scrollTo(0, 0);
     }
     
     switch(popup){
