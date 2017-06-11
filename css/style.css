@@ -766,6 +766,11 @@ suggesties
     width: 0px;  /* remove scrollbar space */
     background: transparent;  /* optional: just make scrollbar invisible */
 }
+::-webkit-scrollbar {display:none;} /* Safari */
+::-moz-scrollbars {display:none;}
+::-o-scrollbar {display:none;} /* opera */
+::-google-ms-scrollbar {display:none;}
+::-khtml-scrollbar {display:none;} 
 
 .aanpassenSuggesties .searchBar{
     background-color:#E7E7E7;
