@@ -1437,7 +1437,8 @@ Serie
     //grid-auto-rows: dense;
     grid-gap:40px;
     height:80vh;
-    overflow:scroll;
+    //overflow:scroll;
+    overflow:auto;
 }
 
 .seenItem::before{
