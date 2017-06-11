@@ -531,14 +531,14 @@ myAccount
     background-color:#E7E7E7;
     border:none;
     height:25px;
-    position:relative;
-    padding-left:160px;
-    top:-5px;
+    padding-left:120px;
     text-align:center;
     -webkit-appearance: none;
+    -moz-appearance:none;
     display:inline-bock;
     cursor:pointer;
 }
+
 
 .myAccount .streamingApps p{
     text-align:center;
