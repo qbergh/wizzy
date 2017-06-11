@@ -418,9 +418,22 @@ function main() {
                 $(this).addClass('fa-square-o');
                 $(this).removeClass('fa-check-square-o');
             });
-        }
-        
+        }        
     });
+    
+        /* suggesties */
+        var suggestiesCount = 5;
+        $('.decideSuggestion div').on('click',function(){
+                $('.suggestionBox.hidden:eq(0)').removeClass('hidden');
+                $('.suggestionBox:eq(0)').remove();
+            suggestiesCount--
+            
+            $('.navUL li:eq(0)').html('Nieuwe suggesties &#40;'+suggestiesCount+'&#41;');
+            $('.aanpassenSuggesties .navUL li:eq(0)').html('Nieuwe suggesties &#40;'+suggestiesCount+'&#41;');
+            if(suggestiesCount == 0){
+               $('.FAQ_article.error').removeClass('hidden');
+            }
+        });
     
 }
 window.onload = function() {

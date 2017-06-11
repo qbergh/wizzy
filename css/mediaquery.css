@@ -19,6 +19,7 @@
     
     .keuzePaneel p,.suggestionBox .suggestionInfo p{
         font-size:14px;
+        line-height: 25px!important;
     }
     
     .FAQ h2{
@@ -71,8 +72,8 @@
     }
     
     .suggestionBox .suggestionInfo p{
-        font-size:11px;
-        line-height:16px !important;
+        font-size:14px;
+        line-height:27px !important;
     }
     
     .decideSuggestion{
@@ -570,17 +571,29 @@
     
     .boxContent{
         display:grid;
-        justify-content: center;
         margin-bottom:30px;
-        height:52vh;
         width:inherit;
+        align-items:center;
     }
     
     .boxContent .profile{
-        margin: 20px 0;
-        width:90px;
-        height:90px;
-        display:block;
+        margin: 0;
+        width:75px;
+        height:75px;
+        display:inline-block;
+        justify-self:center;
+    }
+    
+    .profile.prof_one{
+        grid-column-start:1;
+    }
+    
+    .profile.prof_two{
+        grid-column-start:2;
+    }
+    
+    .profile.prof_three{
+        grid-column-start:3;
     }
     
     .watchNow:first-of-type{margin:0px;}

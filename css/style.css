@@ -1081,7 +1081,9 @@ span[data-filter]{
 Instellingen
 
 ----------------------------------- */
-
+.instellingen{
+    margin-bottom:40px;
+}
 .meldingen .notifEpisode{
     margin-bottom:15px;
 }
