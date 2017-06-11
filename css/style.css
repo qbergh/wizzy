@@ -417,6 +417,7 @@ myAccount
 
 .myAccount{
     margin-top:120px;
+    margin-bottom:40px;
 }
 
 .myAccount .secondProfile, .thirdProfile{
@@ -573,6 +574,7 @@ keuzePaneel
     width:45%;
     color:#979797;
     text-align:center;
+    margin-bottom:40px;
 }
 
 .keuzePaneel .suggestieOption .selectFunctie{
@@ -822,6 +824,9 @@ FAQ
 
 ----------------------------------- */
 
+.FAQ{
+    margin-bottom:40px;
+}
 .FAQ .searchBar{
     background-color:#E7E7E7;
     border:1px solid #D8D8D8;
