@@ -149,10 +149,11 @@ function popUp(){
     if($(window).width() > 540) {
         bodyWidth -= 70; /* body with - aside */
         $('.popUp').width(bodyWidth);
-    } else {
+    } else if($(window).width() < 540){
         bodyWidth -= 80;
         $('.popUp').width(bodyWidth);
         $('.footer').width(bodyWidth);
+        $('.popUpBox').width(bodyWidth);
     }
     
     
