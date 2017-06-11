@@ -9,6 +9,7 @@ function mobileMenu(){
     if($('aside .hamburger').hasClass('fa-times')){
         $('.grid_container').css('background-color',"#979797");
         $('.grid_container').css('overflow','hidden');
+         $('body').css('overflow','hidden');
         $('aside').css('background-color',"#979797");
         $('aside .hamburger').css('color','#F0F0F0');
         
@@ -19,6 +20,7 @@ function mobileMenu(){
     } else if($('aside .hamburger').hasClass('fa-bars')){
         $('.grid_container').css('background-color',"#F0F0F0");
         $('.grid_container').css('overflow','auto');
+         $('body').css('overflow','auto');
         $('aside').css('background-color',"#E7E7E7");
         $('aside .hamburger').css('color','#AFADAF');
         
@@ -92,9 +94,10 @@ function popUp(){
     var popup = $(this).data('popup'),
         popupContent = "<section class='popUp'><div class='popUpBox'>";
     
+    if($(window).width() > 540){
         $('body').css('overflow','hidden');
         $('.grid_container').css('overflow','hidden');
-   
+    }
     
     switch(popup){
         case 'wachtwoord':      popupContent += "<h4>Wachtwoord wijzigen</h4><div class='inputField'><h5>Huidig wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div><h5>Nieuw wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div><h5>Bevestig nieuw wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div></div>"
