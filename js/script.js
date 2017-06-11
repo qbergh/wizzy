@@ -92,7 +92,9 @@ function popUp(){
     var popup = $(this).data('popup'),
         popupContent = "<section class='popUp'><div class='popUpBox'>";
     
-    $('body').css('overflow','hidden');
+        $('body').css('overflow','hidden');
+        $('.grid_container').css('overflow','hidden');
+   
     
     switch(popup){
         case 'wachtwoord':      popupContent += "<h4>Wachtwoord wijzigen</h4><div class='inputField'><h5>Huidig wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div><h5>Nieuw wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div><h5>Bevestig nieuw wachtwoord</h5><div class='input_item'><i class='fa fa-key' aria-hidden='true'></i><input type='password' class='inlogEmail'></div></div>"
@@ -119,13 +121,22 @@ function popUp(){
                                 break;
                 }
     
-    /* POP UP op pagina zetten */
-    if(popup == 'verwijderOpnames'){
-        popupContent+= "<p>Annuleren</p><p>Verwijderen</p></div>/<section>";
-    } else {
-        popupContent+= "<p>Annuleren</p><p>Opslaan</p></div>/<section>";
-    }
-    $('.grid_container').append(popupContent);
+
+        /* POP UP op pagina zetten */
+        if(popup == 'verwijderOpnames'){
+            popupContent+= "<p>Annuleren</p><p>Verwijderen</p></div>/<section>";
+        } else {
+            popupContent+= "<p>Annuleren</p><p>Opslaan</p></div>/<section>";
+        }
+    
+    
+    if($(window).width() > 540){
+        $('.grid_container').append(popupContent);
+    } else{
+        $('.grid_container').append(popupContent);
+        $('main').addClass('hidden');
+   }
+    
     
     /*pop up width geven van body*/
     var bodyWidth = $('body').width();
@@ -134,7 +145,9 @@ function popUp(){
         bodyWidth -= 70; /* body with - aside */
         $('.popUp').width(bodyWidth);
     } else {
+        bodyWidth -= 80;
         $('.popUp').width(bodyWidth);
+        $('.footer').width(bodyWidth);
     }
     
     
@@ -142,6 +155,8 @@ function popUp(){
     $('.popUp p').on('click',function(){
         $('.popUp').remove(); 
         $('body').css('overflow','auto');
+        $('.grid_container').css('overflow','auto');
+        $('main').removeClass('hidden');
     });
     
     /* payment options - tussen opties kiezen */

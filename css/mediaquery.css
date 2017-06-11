@@ -651,12 +651,20 @@
     }
     
     .popUp{
-        margin: 70px 0 0 0;
+        margin: 0 0 0 40px;
+        background-color:#F0F0F0;
+        background:#F0F0F0;
     }
     
-    .meldingAflevering .footer{
-        bottom:311px;
+    .popUpBox{
+        width:inherit;
+        background-color:none;
+        box-shadow:none;
+        border-radius:none;
+        justify-self:none;
     }
+    
+    
     
 }
 
