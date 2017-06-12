@@ -745,6 +745,28 @@
         grid-gap:5%;
     }
     
+    
+    .suggestionInfo{
+        padding:0;
+    }
+    .suggesties .suggestionBox{
+        outline:none;
+    }
+    
+    .suggestionBox .suggestionInfo p{
+        font-size:12px;
+    }
+    
+    .navUL li{
+        font-size:12px;
+    }
+    .suggestionPicture{
+        border:none;
+    }
+    
+    .FAQ .searchBar input{
+        width:60%;
+    }
 }
 
 @media screen and (max-width:375px){
