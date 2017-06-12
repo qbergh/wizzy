@@ -298,29 +298,18 @@ Main - gallery
 
 ----------------------------------- */
 
-main .gallery{
+.gallery{
     margin-top:117px;
-    //height:auto !important;
-    //display:grid;
-    //grid-template-columns: repeat(4, 1fr);
-    //grid-auto-rows:dense;
-    //grid-gap:1rem;
-    //justify-content:space-between;
     //margin-bottom:40px;
-    
-    //background-color:aqua;
+    background-color:aqua;
 }
 
 .gallery_item{
     width:220px;
-    //height:auto;
+    height:auto;
     box-shadow: 0 2px 9px 0 rgba(157,157,157,50);    
-    position:relative; 
-    //width:30.333%;
-    //margin-right:3%;
-    margin-bottom:30px;
-    margin:20px;
-    
+    position:relative;    
+    margin:20px; 
 }
 
 .gallery_item a{
@@ -400,8 +389,7 @@ main .gallery{
     min-width:220px;
     height:inherit;
     height:140px;
-    margin-bottom:5px;
-    
+    margin-bottom:5px;    
 }
 .grid-sizer{width:220px;}
 /* ----------------------------------
@@ -639,7 +627,7 @@ suggesties
 }
 
 .suggesties .suggestionBox{
-    height:540px;
+    //height:540px;
     display:grid;
     margin-top:30px;
     outline:2px solid #979797;
@@ -651,13 +639,17 @@ suggesties
     grid-column-start: 1;
     border-right:2px solid #979797;
     overflow:hidden;
+    background-image:url(../img/series/perfect.jpg);
+    background-repeat:no-repeat;
+    background-position: center;
+    background-size:cover;
 }
 
  .suggestionPicture img{
     height:inherit;
     width:auto;
     position:relative;
-    left:-350px;
+    left:-350px;   
 }
 
 .suggestionInfo{
@@ -722,6 +714,7 @@ suggesties
     color:#AFADAF;
     font-size:26px;
     float:left;
+    margin-bottom:40px;
 }
 
 .suggestionBox .acceptSuggestion{

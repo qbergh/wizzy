@@ -427,6 +427,19 @@ function main() {
                 $('.suggestionBox.hidden:eq(0)').removeClass('hidden');
                 $('.suggestionBox:eq(0)').remove();
             suggestiesCount--
+            console.log(suggestiesCount);
+            
+            switch(suggestiesCount){
+                case 4: $('.suggestionPicture').css('background-image','url(../img/series/24legacy.jpeg)'); 
+                        break; 
+                case 3: $('.suggestionPicture').css('background-image','url(../img/series/13reasons.jpg)'); 
+                        break; 
+                case 2: $('.suggestionPicture').css('background-image','url(../img/series/friends.jpeg)'); 
+                        break; 
+                case 1: $('.suggestionPicture').css('background-image','url(../img/series/dexter.jpeg)'); 
+                        break;
+                                  }
+            
             
             $('.navUL li:eq(0)').html('Nieuwe suggesties &#40;'+suggestiesCount+'&#41;');
             $('.aanpassenSuggesties .navUL li:eq(0)').html('Nieuwe suggesties &#40;'+suggestiesCount+'&#41;');
@@ -444,6 +457,9 @@ window.onload = function() {
 window.onresize = function(){
     var headerWidth = $("main").width();
     $("header").width(headerWidth);
+    
+    var galleryWidth = $("body").width() - 270;
+    $('.gallery').css('width',galleryWidth);
     
     /* POP UP */
     var bodyWidth = $('body').width();

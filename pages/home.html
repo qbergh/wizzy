@@ -86,7 +86,6 @@
                 </article>
             </section>
             <section class="gallery">
-                
             </section>
            
         </main>
@@ -96,12 +95,16 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/isotope_fitcolumns.js"></script>
     <script src="../js/iziToast.min.js"></script>
     <script src="../js/script.js"></script>
     
     <script>       
         $(document).ready(function(){    
 
+            var galleryWidth = $("body").width() - 270;
+            $('.gallery').css('width',galleryWidth);
+            
            $.ajax({
             type: "GET" ,
             url: "home.xml" ,
@@ -196,7 +199,6 @@
                 
                 var $grid = $('.gallery').isotope({
                       // main isotope options
-                    //percentPosition: true,
                     itemSelector: '.gallery_item',
                     layoutMode: 'masonry',
                     filter: function() {
@@ -289,7 +291,6 @@
                           iziToast.show({
                             color:'dark',
                             icon: 'fa fa-info-circle',
-                            
                             layout: '1',
                             message: 'Over 2 minuten begint Het Journaal.',
                             position: 'topRight',
@@ -302,15 +303,6 @@
                       }
                 });
                 
-                setTimeout(function(){
-
-                    
-                    
-                }, 1500);
-                
-                
-                
-                
                 /* DATA MEEGEVEN VOOR DETAIL PAGINA*/
                 $('.gallery_item a').on('click',function(){
                     var serieNaam = $(this).data('serie');
@@ -318,7 +310,9 @@
                     localStorage.setItem('serieNaam',serieNaam);
                     localStorage.setItem('filmNaam',filmNaam);
             });
-            }              
+            
+                
+            }   // end of on succes 
         });
         });
         
