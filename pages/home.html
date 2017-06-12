@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/font-awesome.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/mediaquery.css">
+    <link rel="stylesheet" href="../css/iziToast.min.css">
 </head>
 
 <body>
@@ -95,11 +96,12 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="//npmcdn.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+    <script src="../js/iziToast.min.js"></script>
     <script src="../js/script.js"></script>
     
     <script>       
-        $(document).ready(function(){            
+        $(document).ready(function(){    
+
            $.ajax({
             type: "GET" ,
             url: "home.xml" ,
@@ -129,14 +131,20 @@
                 
                 switch(type){
                     case 'serie':
-                                    galleryItem += "series'";
+                                    galleryItem += "series";
+                                    switch(newAfl){
+                                        case '0':       
+                                                        break;
+                                        default:        galleryItem += " newEp";
+                                                        break;
+                                    }
                                     break;
                     case 'film':
-                                    galleryItem += "films'";
+                                    galleryItem += "films";
                                     break;  
                            };
                 
-                galleryItem += "><a href='";
+                galleryItem += "'><a href='";
             
                 switch(type){
                     case 'serie':
@@ -227,14 +235,6 @@
                         timeout = setTimeout( delayed, threshold || 100 );
                       }
                     }
-                
-                /* DATA MEEGEVEN VOOR DETAIL PAGINA*/
-                $('.gallery_item a').on('click',function(){
-                    var serieNaam = $(this).data('serie');
-                    var filmNaam = $(this).data('film');
-                    localStorage.setItem('serieNaam',serieNaam);
-                    localStorage.setItem('filmNaam',filmNaam);
-            });
             
                 /* Search functie */
                 
@@ -257,6 +257,67 @@
                     $('.gallery').addClass('hidden');
                 })
                 
+                 $( "body" ).on( "keydown", function(event) {
+                      if(event.which == 49) {
+                         iziToast.show({
+                            color:'dark',
+                            icon: 'fa fa-user',
+                            title: 'Hey Jamir!',
+                            layout: '2',
+                            message: 'Er zijn 7 nieuwe afleveringen beschikbaar.',
+                            position: 'topRight',
+                            class: 'filterNewEps',
+                        });
+
+                        $('.filterNewEps').css('cursor','pointer');
+
+                        $('.filterNewEps').on('click',function(){
+                            $('[data-filter].selected').removeClass('selected');
+                            filterValue = '.newEp';
+                            $grid.isotope();
+                        });
+                      } else if(event.which == 50){
+                          iziToast.show({
+                            color:'dark',
+                            title: 'Vera',
+                            layout: '2',
+                            message: 'kijkt momenteel naar Grimm.',
+                            position: 'topRight',
+                            image: '../img/vero3.jpg'
+                        });
+                      } else if(event.which == 51){
+                          iziToast.show({
+                            color:'dark',
+                            icon: 'fa fa-info-circle',
+                            
+                            layout: '1',
+                            message: 'Over 2 minuten begint Het Journaal.',
+                            position: 'topRight',
+                            buttons: [
+                                ['<button>Bekijk</button>', function (instance, toast) {
+                                    console.log("Het Journaal start nu");
+                                }],
+                            ] 
+                        });
+                      }
+                });
+                
+                setTimeout(function(){
+
+                    
+                    
+                }, 1500);
+                
+                
+                
+                
+                /* DATA MEEGEVEN VOOR DETAIL PAGINA*/
+                $('.gallery_item a').on('click',function(){
+                    var serieNaam = $(this).data('serie');
+                    var filmNaam = $(this).data('film');
+                    localStorage.setItem('serieNaam',serieNaam);
+                    localStorage.setItem('filmNaam',filmNaam);
+            });
             }              
         });
         });

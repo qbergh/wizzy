@@ -397,7 +397,7 @@ main .gallery{
     min-width:220px;
     overflow:hidden;
     width:inherit;
-    min-width:inherit;
+    min-width:220px;
     height:inherit;
     height:140px;
     margin-bottom:5px;
@@ -2042,6 +2042,10 @@ input[type="search" i]:focus {
 
 .notice:hover{
     opacity:1;
+}
+
+.filterNewEps{
+    cursor:pointer;
 }
 
 
