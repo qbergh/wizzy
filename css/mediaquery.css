@@ -767,6 +767,10 @@
     .FAQ .searchBar input{
         width:60%;
     }
+    
+    .gallery{
+        width:100% !important;
+    }
 }
 
 @media screen and (max-width:375px){

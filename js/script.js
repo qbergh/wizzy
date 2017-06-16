@@ -153,6 +153,8 @@ function popUp(){
             
         case 'verwijderFilm':   popupContent+= '<h4>Wilt u deze film verwijderen?</h4>';
                                 break;
+            
+        case 'loading':         popupContent+= '<h4>Uw programma zal zo starten</h4><i class="fa fa-cog fa-spin fa-3x fa-fw"></i>'   
                 }
     
 
@@ -163,6 +165,8 @@ function popUp(){
             console.log('popupContent reeds volledig!');
         } else if(popup == 'serieInfo'){
             popupContent+= "<p>Annuleren</p><p>Bekijken</p></div>/<section>";      
+        } else if(popup == 'loading'){
+            popupContent+= "<p style='float:left!important;'>Annuleren</p></div>/<section>";  
         } else {
             popupContent+= "<p>Annuleren</p><p>Opslaan</p></div>/<section>";
         }
@@ -471,4 +475,10 @@ window.onresize = function(){
     }
     
     resizeSeries();
+
+    if(document.location.pathname.match(/[^\/]+$/)[0] === "home.html"){
+        location.reload();
+        
+    }
+    
 };

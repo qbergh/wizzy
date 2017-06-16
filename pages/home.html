@@ -95,7 +95,6 @@
     
     <script src="../js/jquery-3.1.1.min.js"></script>
     <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/isotope_fitcolumns.js"></script>
     <script src="../js/iziToast.min.js"></script>
     <script src="../js/script.js"></script>
     
@@ -192,6 +191,96 @@
                 
                 $('.gallery').append(galleryItem);
             }); 
+                
+                
+                 // Proberen width aan te laten sluiten bij breedte gallery
+                var galleryColumns;
+                var galleryWidth;
+                
+                if(((($('.gallery').width() - (40 * 4)) / 5) >= 220) && ((($('.gallery').width() - (40 * 4)) / 5) <= 290)) {
+                    galleryColumns = 5;
+                    galleryWidth = (($('.gallery').width() - 40) - (40 * (galleryColumns - 1))) / galleryColumns;                   
+                    
+                } else if(((($('.gallery').width() - (40 * 3)) / 4) >= 220) && ((($('.gallery').width() - (40 * 3)) / 4) <= 290)) {
+                    galleryColumns = 4;
+                    galleryWidth = (($('.gallery').width() - 40) - (40 * (galleryColumns - 1))) / galleryColumns;                   
+                    
+                } else if(((($('.gallery').width() - (40 * 2)) / 3) >= 220) && ((($('.gallery').width() - (40 * 2)) / 3) <= 290)){
+                    galleryColumns = 3;
+                    galleryWidth = (($('.gallery').width() - 40) - (40 * (galleryColumns - 1))) / galleryColumns;                   
+                    
+                } else if(((($('.gallery').width() - (40 * 1)) / 2) >= 220) && ((($('.gallery').width() - (40 * 1)) / 2) <= 290)){
+                    galleryColumns = 2;
+                    galleryWidth = (($('.gallery').width() - 40) - (40 * (galleryColumns - 1))) / galleryColumns;
+                    
+                } else if(($(window).width() < 1010) && ($(window).width() > 750)) {
+                    galleryClumns = 2;
+                    galleryWidth = ($('.gallery').width() - 80) / galleryColumns; 
+                    
+                } else if(/*($(window).width() < 1010) && */($(window).width() > 1221)) {
+                    galleryClumns = 3;
+                    galleryWidth = ($('.gallery').width() - 120) / galleryColumns; 
+                    
+                } else {
+                    galleryColumns = 1;
+                    console.log(galleryColumns);
+                    console.log(($('.gallery').width() - (40 * 1)) / 1);
+                    var thisWidth = $('.gallery').width() - 40;
+                    
+                    if(thisWidth > 290){
+                        thisWidth = 290;
+                        $('.gallery_item').css('margin','0');
+                        $('.gallery_item').css('margin-left', ($('.gallery').width() - thisWidth) / 2);
+                        $('.gallery_item').css('margin-right', ($('.gallery').width() - thisWidth) / 2);
+                        $('.gallery_item').css('margin-bottom', '30px');
+                        $('.gallery_item').css('width', thisWidth+'px');
+                        $('.gallery_item').css('min-width', thisWidth+'px');
+                        
+                    } else  if(thisWidth < 220){
+                        thisWidth = 220;
+                        $('.gallery_item').css('margin','0');
+                        $('.gallery_item').css('margin-left', $('.gallery').width() - thisWidth);
+                        $('.gallery_item').css('margin-right', $('.gallery').width() - thisWidth);
+                        $('.gallery_item').css('margin-bottom', '30px');
+                        $('.gallery_item').css('width', thisWidth+'px');
+                        $('.gallery_item').css('min-width', thisWidth+'px');
+                        
+                    } else{
+                        console.log(thisWidth);
+                        $('.gallery_item').css('margin','0 20px 30px 20px');
+                        $('.gallery_item').css('width', thisWidth+'px');
+                        $('.gallery_item').css('min-width', thisWidth+'px');
+                    }
+                    
+                    if($(window).width() > 540){
+                        $('.gallery_item').css('margin-left', '0');
+                    }
+                    
+                }
+        
+                if (galleryColumns !== 1){      
+                
+                    
+                for(var i = 0; i < 100; i = i + galleryColumns ){
+                    $('.gallery_item:eq('+i+')').css('margin-left','0');
+                    //alert(i);
+                };
+                
+                for(var i = 3; i < 100; i = i + galleryColumns ){
+                    $('.gallery_item:eq('+i+')').css('margin-right','0');
+                };
+                
+                for (var i = 0; i < galleryColumns; i++){
+                    $('.gallery_item:eq('+i+')').css('margin-top','0');
+                }
+                
+                $('.gallery_item').css('width',galleryWidth+'px');
+                $('.gallery_item').css('min-width',galleryWidth+'px');    
+                $('.img_container').css('min-width',galleryWidth+'px');  
+                    
+                $('.gallery_item.films').css('margin-right','40px');
+                } 
+                
                 
                 /* ISOTOPE */
                 var qsRegex;
@@ -309,13 +398,12 @@
                     var filmNaam = $(this).data('film');
                     localStorage.setItem('serieNaam',serieNaam);
                     localStorage.setItem('filmNaam',filmNaam);
-            });
-            
+            });               
+                
                 
             }   // end of on succes 
         });
         });
-        
         
     </script>
 </body>

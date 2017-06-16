@@ -301,7 +301,6 @@ Main - gallery
 .gallery{
     margin-top:117px;
     //margin-bottom:40px;
-    //background-color:aqua;
 }
 
 .gallery_item{
@@ -309,12 +308,13 @@ Main - gallery
     height:auto;
     box-shadow: 0 2px 9px 0 rgba(157,157,157,50);    
     position:relative;    
-    margin:20px; 
+    margin: 20px 40px 20px 0; 
 }
 
 .gallery_item a{
     width:inherit;
     height:inherit;
+    min-width:inherit;
 }
 
 .gallery_item.television{
@@ -345,10 +345,8 @@ Main - gallery
 }
 
 .gallery_item img{
-    //width:inherit;
-    height:160px;
+    height:160px; 
     min-width:inherit;
-    //height:inherit;
 }
 
 .gallery_item_info{
@@ -382,14 +380,13 @@ Main - gallery
 }
 
 .gallery_item .img_container{
-    width:220px;
-    min-width:220px;
     overflow:hidden;
     width:inherit;
     min-width:220px;
     height:inherit;
     height:140px;
-    margin-bottom:5px;    
+    margin-bottom:5px; 
+    min-width:inherit;
 }
 .grid-sizer{width:220px;}
 /* ----------------------------------
@@ -1870,7 +1867,10 @@ input[type="search" i]:focus {
     width:90px;
     margin-left:40px;
 }
-
+.popUpBox .fa-cog{
+    width:100%;
+    margin-bottom:50px;
+}
 .popUpBox input::placeholder{
     color:#AFADAF;
     background-color:#E7E7E7;
